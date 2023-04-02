@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Barbershop Management App</string>
+    <string name="delete_prompt">Delete</string>
+    <string name="delete_button_content_description">Delete appointment</string>
 </resources>
