@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Barbershop Management App</string>
+    <string name="price_text">Price:</string>
+    <string name="hairstyle_pic">hairstyle_pic</string>
 </resources>
