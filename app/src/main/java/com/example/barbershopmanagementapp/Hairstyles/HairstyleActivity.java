@@ -1,5 +1,6 @@
 package com.example.barbershopmanagementapp.Hairstyles;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,7 +9,9 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
+import com.example.barbershopmanagementapp.BookAppointmentActivity;
 import com.example.barbershopmanagementapp.Hairstyles.HairstyleGVAdapter;
 import com.example.barbershopmanagementapp.Hairstyles.HairstyleModel;
 import com.example.barbershopmanagementapp.R;
@@ -24,10 +27,27 @@ import java.util.Objects;
 public class HairstyleActivity extends AppCompatActivity {
   GridView hairstyleGV;
 
+  public void openBookAppointment(String barber, String hairstyle, int price) {
+    Intent intent = new Intent(this, BookAppointmentActivity.class);
+    intent.putExtra("hairstyle", hairstyle);
+    intent.putExtra("barber", barber);
+    intent.putExtra("price", price);
+    startActivity(intent);
+  }
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.hairstyles);
+    Toolbar toolbar = findViewById(R.id.toolbar);
+    setSupportActionBar(toolbar);
+
+    toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        onBackPressed();
+      }
+    });
 
     ArrayList<HairstyleModel> hairstyleModelArrayList = new ArrayList<>();
 
@@ -46,6 +66,9 @@ public class HairstyleActivity extends AppCompatActivity {
       @Override
       public void onItemClick(AdapterView<?> arg0, View v, int position,
                               long arg3) {
+        HairstyleModel choice = hairstyleModelArrayList.get(position);
+        openBookAppointment("Barber 1", choice.getHairstyle_name(), choice.getPrice());
+        /*
         adapter.setSelectedPosition(position);
         hairstyleGV.setItemChecked(position, true);
         adapter.notifyDataSetChanged();
@@ -56,6 +79,8 @@ public class HairstyleActivity extends AppCompatActivity {
         Log.d("hairstyle",
               hairstyleModelArrayList.get(adapter.getSelectedPosition())
                   .getHairstyle_name());
+
+         */
       }
     });
 

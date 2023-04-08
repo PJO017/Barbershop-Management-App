@@ -2,4 +2,5 @@
     <string name="app_name">Barbershop Management App</string>
     <string name="price_text">Price:</string>
     <string name="hairstyle_pic">hairstyle_pic</string>
+    <string name="book_appointment_title">Book Appointment</string>
 </resources>

@@ -26,7 +26,7 @@ public class HairstyleModel {
         this.imgId = imgId;
     }
 
-    public long getPrice() {
+    public int getPrice() {
         return price;
     }
 
