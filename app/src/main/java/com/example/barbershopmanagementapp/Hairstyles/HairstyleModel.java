@@ -1,36 +1,45 @@
 package com.example.barbershopmanagementapp.Hairstyles;
 
-public class HairstyleModel {
-    private String hairstyle_name;
-    private int imgId;
-    private int price;
+import androidx.annotation.NonNull;
 
-    public HairstyleModel(String hairstyle_name, int imgId, int price) {
-        this.hairstyle_name = hairstyle_name;
-        this.imgId = imgId;
+public class HairstyleModel {
+    private String name;
+    private Long count;
+    private Long price;
+
+    public HairstyleModel(Long count, String name, Long price) {
+        this.count = count;
+        this.name = name;
         this.price = price;
     }
-    public String getHairstyle_name() {
-        return hairstyle_name;
+
+    @NonNull
+    @Override
+    public String toString() {
+        return "Count: " + count + " Name: " + name + " Price: " + price;
     }
 
-    public void setHairstyle_name(String hairstyle_name) {
-        this.hairstyle_name = hairstyle_name;
+    public Long getCount() {
+        return count;
     }
 
-    public int getImgId() {
-        return imgId;
+    public void setCount(Long count) {
+        this.count = count;
     }
 
-    public void setImgId(int imgId) {
-        this.imgId = imgId;
+    public String getName() {
+        return name;
     }
 
-    public int getPrice() {
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Long getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(Long price) {
         this.price = price;
     }
 }

@@ -47,8 +47,7 @@ public class HairstyleGVAdapter extends ArrayAdapter<HairstyleModel> {
         ImageView hairstyleImg = listItemView.findViewById(R.id.hairstyleImg);
         TextView hairstylePrice = listItemView.findViewById(R.id.hairstylePrice);
 
-        hairstyleName.setText(hairstyleModel.getHairstyle_name());
-        hairstyleImg.setImageResource(hairstyleModel.getImgId());
+        hairstyleName.setText(hairstyleModel.getName());
         hairstylePrice.setText("Price: " + hairstyleModel.getPrice());
         return listItemView;
     }
