@@ -32,6 +32,14 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".PaymentActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOK_APPOINTMENT"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

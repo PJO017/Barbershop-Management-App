@@ -3,4 +3,6 @@
     <string name="price_text">Price:</string>
     <string name="hairstyle_pic">hairstyle_pic</string>
     <string name="book_appointment_title">Book Appointment</string>
+    <string name="paymentTitle">Payment</string>
+    <string name="price">Price: $%1$d</string>
 </resources>

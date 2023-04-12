@@ -37,7 +37,7 @@ public class HairstyleActivity extends AppCompatActivity {
         Intent intent = new Intent(this, BookAppointmentActivity.class);
         intent.putExtra("hairstyle", hairstyle);
         intent.putExtra("barber", barber);
-        intent.putExtra("price", price);
+        intent.putExtra("price", (long)price);
         startActivity(intent);
     }
 
@@ -50,23 +50,7 @@ public class HairstyleActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
-
-
-        /* hairstyleModelArrayList.add(new HairstyleModel(
-                (Long) 10,"hairstyle 1",  10));
-        hairstyleModelArrayList.add(new HairstyleModel(
-                "hairstyle 2",  20));
-        hairstyleModelArrayList.add(new HairstyleModel(
-                "hairstyle 3",  30));
-
-         */
+        toolbar.setNavigationOnClickListener(v -> onBackPressed());
 
         ArrayList<HairstyleModel> hairstyleModelArrayList = new ArrayList<>();
 
