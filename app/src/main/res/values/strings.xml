@@ -8,8 +8,8 @@
     <string name="click_to_register">Create an account</string>
     <string name="logout">Logout</string>
     <string name="review">Review</string>
-    <string name="first">First Name</string>
-    <string name="last">Last Name</string>
+    <string name="cust">Customer Name</string>
+    <string name="barb">Barber Name</string>
     <string name="reg_text">Don\'t have an account?</string>
     <string name="login_text">Already have an account?</string>
 </resources>

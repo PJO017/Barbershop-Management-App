@@ -21,8 +21,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/fname"
-            android:hint="@string/first"
+            android:id="@+id/cust_name"
+            android:hint="@string/cust"
             android:layout_marginBottom="10sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -32,8 +32,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/lname"
-            android:hint="@string/last"
+            android:id="@+id/bname"
+            android:hint="@string/barb"
             android:layout_marginBottom="10sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>

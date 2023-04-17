@@ -13,6 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -22,8 +24,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Reviews extends AppCompatActivity {
-    TextView firstName;
-    TextView lastName;
+    TextView custName;
+    TextView barbName;
     TextView rev;
     Button buttonRev;
     RatingBar rate;
@@ -32,10 +34,11 @@ public class Reviews extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reviews);
         
-        firstName = findViewById(R.id.fname);
-        lastName = findViewById(R.id.lname);
+        custName = findViewById(R.id.cust_name);
+        barbName = findViewById(R.id.bname);
+        rev = findViewById(R.id.review_input);
         buttonRev = (Button) findViewById(R.id.btn_review);
-        rate = findViewById(R.id.ratingBar);
+        rate = (RatingBar) findViewById(R.id.ratingBar);
 
         buttonRev.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,11 +46,22 @@ public class Reviews extends AppCompatActivity {
                 FirebaseFirestore db = FirebaseFirestore.getInstance();
                 Map<String, Object> review = new HashMap<>();
 
-                review.put("First Name", String.valueOf(firstName.getText()));
-                review.put("Last Name", String.valueOf(lastName.getText()));
-                review.put("Review", String.valueOf(rev.getText()));
-                //review.put("First Name", String.valueOf(firstName.getText()));
-                
+                review.put("Customer Name", custName.getText().toString());
+                review.put("Barber Name", barbName.getText().toString());
+                review.put("Review", rev.getText().toString());
+                review.put("Rating", rate.getRating());
+                db.collection("Reviews").
+                        add(review)
+                        .addOnSuccessListener(new OnSuccessListener() {
+                            @Override
+                            public void onSuccess(Object o) {
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                            }
+                        });
             }
         });
 
