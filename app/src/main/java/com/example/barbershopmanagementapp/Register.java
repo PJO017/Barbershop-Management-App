@@ -13,23 +13,31 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Register extends AppCompatActivity {
-    TextInputEditText editTextEmail, editTextPassword;
+    TextInputEditText editTextName, editTextEmail, editTextPassword;
     Button buttonReg;
     FirebaseAuth mAuth;
     ProgressBar progressBar;
     TextView textView;
+
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
+        if (currentUser != null) {
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         }
     }
@@ -39,6 +47,7 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         mAuth = FirebaseAuth.getInstance();
+        editTextName = findViewById(R.id.name);
         editTextEmail = findViewById(R.id.email);
         editTextPassword = findViewById(R.id.password);
         buttonReg = findViewById(R.id.btn_reg);
@@ -58,10 +67,17 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
-                String email, password;
+                String name, email, password;
+                name = String.valueOf(editTextName.getText());
                 email = String.valueOf(editTextEmail.getText());
                 password = String.valueOf(editTextPassword.getText());
-                
+
+
+                if (TextUtils.isEmpty(name)) {
+                    Toast.makeText(Register.this, "Enter name", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 if (TextUtils.isEmpty(email)) {
                     Toast.makeText(Register.this, "Enter email", Toast.LENGTH_SHORT).show();
                     return;
@@ -72,13 +88,34 @@ public class Register extends AppCompatActivity {
                     return;
                 }
                 mAuth.createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener( new OnCompleteListener<AuthResult>() {
+                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 progressBar.setVisibility(View.GONE);
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(Register.this, "Account created.",
-                                            Toast.LENGTH_SHORT).show();
+                                    FirebaseFirestore db = FirebaseFirestore.getInstance();
+                                    String userId = mAuth.getCurrentUser().getUid();
+                                    DocumentReference userRef = db.collection("Users").document(userId);
+
+                                    Map<String, Object> user = new HashMap<>();
+                                    user.put("Name", name);
+                                    user.put("Email", email);
+
+                                    userRef.set(user)
+                                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                @Override
+                                                public void onSuccess(Void aVoid) {
+                                                    Toast.makeText(Register.this, "Account created.",
+                                                            Toast.LENGTH_SHORT).show();
+                                                }
+                                            })
+                                            .addOnFailureListener(new OnFailureListener() {
+                                                @Override
+                                                public void onFailure(@NonNull Exception e) {
+                                                    Toast.makeText(Register.this, "Failed to make an account.",
+                                                            Toast.LENGTH_SHORT).show();
+                                                }
+                                            });
                                 } else {
                                     Toast.makeText(Register.this, "Failed to make an account.",
                                             Toast.LENGTH_SHORT).show();

@@ -12,4 +12,5 @@
     <string name="barb">Barber Name</string>
     <string name="reg_text">Don\'t have an account?</string>
     <string name="login_text">Already have an account?</string>
+    <string name="name">Name</string>
 </resources>
