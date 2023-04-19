@@ -13,9 +13,9 @@ import java.util.List;
 public class ReviewAdapter extends RecyclerView.Adapter<ReviewHolder> {
 
     Context context;
-    List<ClipData.Item> items;
+    List<ReviewItems> items;
 
-    public ReviewAdapter(Context context, List<ClipData.Item> items) {
+    public ReviewAdapter(Context context, List<ReviewItems> items) {
         this.context = context;
         this.items = items;
     }
@@ -28,7 +28,7 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ReviewHolder holder, int position) {
-    holder.displayReview.setText(items.get(position).);
+    holder.displayReview.setText(items.get(position).getReview());
     }
 
     @Override
