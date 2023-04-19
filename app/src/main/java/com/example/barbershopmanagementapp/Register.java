@@ -2,10 +2,13 @@ package com.example.barbershopmanagementapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +31,8 @@ import java.util.Map;
 
 public class Register extends AppCompatActivity {
     TextInputEditText editTextName, editTextEmail, editTextPassword;
+    RadioGroup roleRadioGroup;
+
     Button buttonReg;
     FirebaseAuth mAuth;
     ProgressBar progressBar;
@@ -42,6 +47,12 @@ public class Register extends AppCompatActivity {
         }
     }
 
+    void goToLogin() {
+        Intent intent = new Intent(getApplicationContext(), Login.class);
+        startActivity(intent);
+        finish();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +61,7 @@ public class Register extends AppCompatActivity {
         editTextName = findViewById(R.id.name);
         editTextEmail = findViewById(R.id.email);
         editTextPassword = findViewById(R.id.password);
+        roleRadioGroup = findViewById(R.id.roleRadioGroup);
         buttonReg = findViewById(R.id.btn_reg);
         progressBar = findViewById(R.id.progressBar);
         textView = findViewById(R.id.loginNow);
@@ -57,9 +69,7 @@ public class Register extends AppCompatActivity {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Login.class);
-                startActivity(intent);
-                finish();
+                goToLogin();
             }
         });
 
@@ -67,11 +77,19 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
-                String name, email, password;
+                String name, email, password, role;
                 name = String.valueOf(editTextName.getText());
                 email = String.valueOf(editTextEmail.getText());
                 password = String.valueOf(editTextPassword.getText());
+                int selectedRadioId = roleRadioGroup.getCheckedRadioButtonId();
 
+                if (selectedRadioId == -1) {
+                    Toast.makeText(Register.this, "Choose a role", Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+                    RadioButton selectedRadioButtton = findViewById(selectedRadioId);
+                    role = selectedRadioButtton.getText().toString();
+                }
 
                 if (TextUtils.isEmpty(name)) {
                     Toast.makeText(Register.this, "Enter name", Toast.LENGTH_SHORT).show();
@@ -100,6 +118,7 @@ public class Register extends AppCompatActivity {
                                     Map<String, Object> user = new HashMap<>();
                                     user.put("Name", name);
                                     user.put("Email", email);
+                                    user.put("Role", role);
 
                                     userRef.set(user)
                                             .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -107,6 +126,7 @@ public class Register extends AppCompatActivity {
                                                 public void onSuccess(Void aVoid) {
                                                     Toast.makeText(Register.this, "Account created.",
                                                             Toast.LENGTH_SHORT).show();
+                                                    goToLogin();
                                                 }
                                             })
                                             .addOnFailureListener(new OnFailureListener() {
