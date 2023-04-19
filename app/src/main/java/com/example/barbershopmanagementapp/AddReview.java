@@ -2,10 +2,12 @@ package com.example.barbershopmanagementapp;
 
 import static android.content.ContentValues.TAG;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -23,20 +25,28 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Reviews extends AppCompatActivity {
+public class AddReview extends AppCompatActivity {
     TextView custName;
     TextView barbName;
-    TextView rev;
+    EditText rev;
     Button buttonRev;
     RatingBar rate;
+    public void openReview (String barber, String review, float rating) {
+        Intent intent = new Intent(this, Reviews.class);
+        intent.putExtra("barber", barber);
+        intent.putExtra("review", review);
+        intent.putExtra("rating", rating);
+        startActivity(intent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reviews);
-        
+
         //custName = findViewById(R.id.cust_name);
         //barbName = findViewById(R.id.bname);
-        rev = findViewById(R.id.review_input);
+        rev = (EditText) findViewById(R.id.review_input);
         buttonRev = (Button) findViewById(R.id.btn_review);
         rate = (RatingBar) findViewById(R.id.ratingBar);
 
