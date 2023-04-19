@@ -15,11 +15,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.example.barbershopmanagementapp.PaymentActivity;
-
-
-import java.util.Locale;
-
 public class BookAppointmentActivity extends AppCompatActivity {
     TextView hairstyle;
     TextView barber;
@@ -45,7 +40,7 @@ public class BookAppointmentActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.book_appointment);
+        setContentView(R.layout.activity_book_appointment);
         Intent data = getIntent();
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -66,9 +61,9 @@ public class BookAppointmentActivity extends AppCompatActivity {
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int selectedYear, int selectedMonth, int dayOfMonth) {
-                String s_day = (dayOfMonth < 10) ? "0"+String.valueOf(dayOfMonth) : String.valueOf(dayOfMonth);
+                String s_day = (dayOfMonth < 10) ? "0" + String.valueOf(dayOfMonth) : String.valueOf(dayOfMonth);
                 String s_year = String.valueOf(selectedYear);
-                String s_month = String.valueOf(selectedMonth+1);
+                String s_month = String.valueOf(selectedMonth + 1);
                 // date = month + "/" + day + "/" + year;
                 day = s_day;
                 month = s_month;
@@ -82,7 +77,7 @@ public class BookAppointmentActivity extends AppCompatActivity {
         bookButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               openPaymentActivity(data.getStringExtra("barber"), data.getStringExtra("hairstyle"), (Long) data.getLongExtra("price", 0), hour, minute, year, month, day);
+                openPaymentActivity(data.getStringExtra("barber"), data.getStringExtra("hairstyle"), (Long) data.getLongExtra("price", 0), hour, minute, year, month, day);
             }
         });
     }
@@ -95,21 +90,21 @@ public class BookAppointmentActivity extends AppCompatActivity {
         } else if (hour == 0) {
             hour += 12;
             timeSet = "AM";
-        } else if (hour == 12){
+        } else if (hour == 12) {
             timeSet = "PM";
-        }else{
+        } else {
             timeSet = "AM";
         }
 
         String min = "";
         if (minute < 10)
-            min = "0" + minute ;
+            min = "0" + minute;
         else
             min = String.valueOf(minute);
 
         // Append in a StringBuilder
         String aTime = new StringBuilder().append(hour).append(':')
-                .append(min ).append(" ").append(timeSet).toString();
+                .append(min).append(" ").append(timeSet).toString();
 
         return aTime;
     }

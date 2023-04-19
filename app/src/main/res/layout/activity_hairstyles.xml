@@ -5,20 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-    <GridView
-        android:id="@+id/idGVHairstyles"
-        android:layout_width="411dp"
-        android:layout_height="550dp"
-        android:layout_marginTop="84dp"
-        android:horizontalSpacing="6dp"
-        android:numColumns="2"
-        android:verticalSpacing="6dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
-
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -32,14 +18,38 @@
         app:title="Barbershop Management App"
         tools:ignore="MissingConstraints" />
 
+
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/hairstyleActivityTitle"
         android:layout_width="287dp"
         android:layout_height="40dp"
         android:layout_marginStart="60dp"
         android:layout_marginTop="16dp"
-        android:text="Choose a Hairstyle"
+        android:text="@string/hairstyleActivityTitle"
         android:textSize="34sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+
+    <GridView
+        android:id="@+id/idGVHairstyles"
+        android:layout_width="411dp"
+        android:layout_height="550dp"
+        android:layout_marginTop="64dp"
+        android:horizontalSpacing="6dp"
+        android:numColumns="2"
+        android:verticalSpacing="6dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <Button
+        android:id="@+id/chooseButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:text="Choose"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idGVHairstyles" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,4 +5,5 @@
     <string name="book_appointment_title">Book Appointment</string>
     <string name="paymentTitle">Payment</string>
     <string name="price">Price: $%1$d</string>
+    <string name="hairstyleActivityTitle">Choose a Hairstyle</string>
 </resources>
