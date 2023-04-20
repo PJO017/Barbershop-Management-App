@@ -24,6 +24,9 @@ import com.google.firebase.storage.StorageReference;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Calendar;
 
 public class BookAppointmentActivity extends AppCompatActivity {
     TextView hairstyle;
@@ -94,13 +97,18 @@ public class BookAppointmentActivity extends AppCompatActivity {
 
         CalendarView calendar = findViewById(R.id.appointmentCalendarView);
         calendar.setDate(System.currentTimeMillis());
+        calendar.setMinDate(System.currentTimeMillis() - 1000);
+        LocalDate currentdate = LocalDate.now();
+        day = String.valueOf(currentdate.getDayOfMonth());
+        month = String.valueOf(currentdate.getMonthValue());
+        year = String.valueOf(currentdate.getYear());
+
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int selectedYear, int selectedMonth, int dayOfMonth) {
                 String s_day = (dayOfMonth < 10) ? "0" + String.valueOf(dayOfMonth) : String.valueOf(dayOfMonth);
                 String s_year = String.valueOf(selectedYear);
                 String s_month = String.valueOf(selectedMonth + 1);
-                // date = month + "/" + day + "/" + year;
                 day = s_day;
                 month = s_month;
                 year = s_year;
