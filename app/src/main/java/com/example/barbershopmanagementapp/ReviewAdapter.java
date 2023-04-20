@@ -3,36 +3,49 @@ package com.example.barbershopmanagementapp;
 import android.content.ClipData;
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
 import java.util.List;
 
-public class ReviewAdapter extends RecyclerView.Adapter<ReviewHolder> {
+public class ReviewAdapter extends ArrayAdapter<ReviewItems> {
+    private final ArrayList<ReviewItems> reviewData;
+    private int selectedPosition = -1;
+    public ReviewAdapter(@NonNull Context context, ArrayList<ReviewItems> reviewItemsArrayList) {
+        super(context, 0, reviewItemsArrayList);
 
-    Context context;
-    List<ReviewItems> items;
+        reviewData = reviewItemsArrayList;
+    }
 
-    public ReviewAdapter(Context context, List<ReviewItems> items) {
-        this.context = context;
-        this.items = items;
+    public void setSelectedPosition (int position) {
+        selectedPosition = position;
+        notifyDataSetChanged();
+
     }
 
     @NonNull
     @Override
-    public ReviewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ReviewHolder(LayoutInflater.from(context).inflate(R.layout.reviews_view, parent, false));
-    }
+    public View getView (int position, @NonNull View convertView,  @NonNull ViewGroup parent) {
+        View listItemView = convertView;
+        if (listItemView == null) {
+            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.reviews_view, parent, false);
+        }
+        ReviewItems reviewData = getItem(position);
+        TextView revTitle = listItemView.findViewById(R.id.ReviewTitle);
+        TextView displayRating = listItemView.findViewById(R.id.DisplayRating);
+        TextView displayReview = listItemView.findViewById(R.id.DisplayReview);
 
-    @Override
-    public void onBindViewHolder(@NonNull ReviewHolder holder, int position) {
-    holder.displayReview.setText(items.get(position).getReview());
-    }
-
-    @Override
-    public int getItemCount() {
-        return 0;
+        revTitle.setText(reviewData.getUser());
+        displayReview.setText(reviewData.getReview());
+        displayRating.setText((int) reviewData.getRating());
+        return listItemView;
     }
 }

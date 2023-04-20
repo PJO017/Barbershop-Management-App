@@ -24,46 +24,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Reviews extends AppCompatActivity {
-    TextView custName;
-    TextView barbName;
-    TextView rev;
-    Button buttonRev;
-    RatingBar rate;
+    TextView customer, barber, review, rating;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reviews);
-        
-        //custName = findViewById(R.id.cust_name);
-        //barbName = findViewById(R.id.bname);
-        rev = findViewById(R.id.review_input);
-        buttonRev = (Button) findViewById(R.id.btn_review);
-        rate = (RatingBar) findViewById(R.id.ratingBar);
-
-        buttonRev.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FirebaseFirestore db = FirebaseFirestore.getInstance();
-                Map<String, Object> review = new HashMap<>();
-
-                review.put("Customer Name", custName.getText().toString());
-                review.put("Barber Name", barbName.getText().toString());
-                review.put("Review", rev.getText().toString());
-                review.put("Rating", rate.getRating());
-                db.collection("Reviews").
-                        add(review)
-                        .addOnSuccessListener(new OnSuccessListener() {
-                            @Override
-                            public void onSuccess(Object o) {
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                            }
-                        });
-            }
-        });
+        setContentView(R.layout.activity_add_review);
 
     }
 }
