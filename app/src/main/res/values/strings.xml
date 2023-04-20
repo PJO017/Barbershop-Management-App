@@ -6,4 +6,5 @@
     <string name="paymentTitle">Payment</string>
     <string name="price">Price: $%1$d</string>
     <string name="hairstyleActivityTitle">Choose a Hairstyle</string>
+    <string name="chooseButton">Choose</string>
 </resources>

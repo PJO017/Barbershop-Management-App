@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -97,9 +98,9 @@ public class HairstyleGVAdapter extends ArrayAdapter<HairstyleModel> {
         });
 
         if (position == selectedPosition) {
-            listItemView.setBackgroundColor(ContextCompat.getColor(parent.getContext(), R.color.selected_hairstyle));
+            listItemView.setBackgroundColor(ContextCompat.getColor(parent.getContext(), R.color.selected_hairstyle_card));
         } else {
-            listItemView.setBackgroundColor(ContextCompat.getColor(parent.getContext(), android.R.color.transparent));
+            listItemView.setBackgroundColor(ContextCompat.getColor(parent.getContext(), R.color.hairstyle_card));
         }
 
         listItemView.setOnClickListener(v -> {
