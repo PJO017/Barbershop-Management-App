@@ -14,7 +14,8 @@
         android:layout_height="150sp"
         app:cardBackgroundColor="#E4E4E4"
         app:cardElevation="4sp"
-        app:cardCornerRadius="15
+        app:cardCornerRadius="15sp">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -25,14 +26,14 @@
             android:layout_width="100sp"
             android:layout_height="100sp"
             android:id="@+id/barberImg"
-            android:src="icons80-name-50"
+            android:src="@drawable/barber_icon"
             android:contentDescription="@string/barber_profile_picture"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@+id/barberImg"
-            android:paddingTop="15sp"
+            android:paddingTop="20sp"
             android:layout_marginStart="15sp"
             android:text="@string/name"
             android:id="@+id/barber_name" />
@@ -41,7 +42,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@+id/barberImg"
-                android:paddingTop="15sp"
+                android:paddingTop="20sp"
                 android:layout_marginStart="15sp"
                 android:layout_below="@+id/barber_name"
                 android:text="@string/rating"
@@ -49,9 +50,10 @@
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="450sp"
+        android:layout_height="420sp"
         android:id="@+id/recyclerView"
         android:layout_marginTop="15sp">
     </androidx.recyclerview.widget.RecyclerView>

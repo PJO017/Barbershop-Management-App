@@ -3,6 +3,7 @@ package com.example.barbershopmanagementapp;
 import static android.content.ContentValues.TAG;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -28,15 +29,28 @@ import java.util.Map;
 
 public class Reviews extends AppCompatActivity {
     TextView customer, barber, review, rating;
-
-    RecyclerView ReviewRV;
+    Button add;
+    RecyclerView reviewRV;
     private Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_review);
+        setContentView(R.layout.activity_reviews);
 
         context = this;
+
+        reviewRV = (RecyclerView) findViewById(R.id.recyclerView);
+
+        add = findViewById(R.id.add);
+
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Reviews.this, AddReview.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
 
         ArrayList<ReviewItems> reviewItemsArrayList = new ArrayList<>();
@@ -48,10 +62,6 @@ public class Reviews extends AppCompatActivity {
                 reviewItemsArrayList.add(reviewItems);
             }
 
-
-            ReviewRV = findViewById(R.id.recyclerView);
-            ReviewAdapter adapter = new ReviewAdapter(context, reviewItemsArrayList);
-            //ReviewRV.setAdapter(adapter);
         });
         db.collection("Barber").get().addOnSuccessListener(queryDocumentSnapshots -> {
             for (QueryDocumentSnapshot document: queryDocumentSnapshots) {
