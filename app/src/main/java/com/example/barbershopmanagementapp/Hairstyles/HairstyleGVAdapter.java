@@ -1,6 +1,10 @@
 package com.example.barbershopmanagementapp.Hairstyles;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +17,16 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 
 import com.example.barbershopmanagementapp.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FileDownloadTask;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class HairstyleGVAdapter extends ArrayAdapter<HairstyleModel> {
     private final ArrayList<HairstyleModel> data;
@@ -36,13 +48,10 @@ public class HairstyleGVAdapter extends ArrayAdapter<HairstyleModel> {
         return selectedHairstyle;
     }
 
-    public int getSelectedPosition() {
-        return selectedPosition;
-    }
-
     public HairstyleModel getItem(int position) {
         return data.get(position);
     }
+
 
     @NonNull
     @Override
@@ -61,6 +70,31 @@ public class HairstyleGVAdapter extends ArrayAdapter<HairstyleModel> {
 
         hairstyleName.setText(hairstyleModel.getName());
         hairstylePrice.setText("Price: " + hairstyleModel.getPrice());
+
+
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        StorageReference storageRef = storage.getReference();
+
+        String index = hairstyleModel.getName().split(" ")[1];
+        StorageReference imageRef = storage.getReferenceFromUrl("gs://barbershop-management-app.appspot.com/" + "hairstyle" + index + ".jpg");
+
+        long bytes = 0;
+        File localFile = null;
+        try {
+            localFile = File.createTempFile("image", "jpg");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        assert localFile != null;
+        imageRef.getBytes(30000).addOnSuccessListener(taskSnapshot -> {
+            // Image downloaded successfully
+            Log.d("image", "Image downloaded");
+            Bitmap bitmap = BitmapFactory.decodeByteArray(taskSnapshot, 0, taskSnapshot.length);
+            hairstyleImg.setImageBitmap(bitmap);
+        }).addOnFailureListener(exception -> {
+            // Handle any errors
+            Log.d("image", "Image not downloaded");
+        });
 
         if (position == selectedPosition) {
             listItemView.setBackgroundColor(ContextCompat.getColor(parent.getContext(), R.color.selected_hairstyle));

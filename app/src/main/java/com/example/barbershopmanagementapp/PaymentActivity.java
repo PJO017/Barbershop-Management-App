@@ -24,6 +24,7 @@ import java.util.Map;
 
 public class PaymentActivity extends AppCompatActivity {
     TextView appointment, price, barber, hairstyle;
+
     public static String convertTime(int hour, int minute) {
         if (hour > 12) {
             hour -= 12;
@@ -33,14 +34,12 @@ public class PaymentActivity extends AppCompatActivity {
 
         String min;
         if (minute < 10)
-            min = "0" + minute ;
+            min = "0" + minute;
         else
             min = String.valueOf(minute);
 
-        String aTime = new StringBuilder().append(hour).append(':')
-                .append(min ).toString();
-
-        return aTime;
+        return String.valueOf(hour) + ':' +
+                min;
     }
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +52,7 @@ public class PaymentActivity extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(v -> onBackPressed());
 
         appointment = findViewById(R.id.appointmentTV);
-        String date = data.getStringExtra("month") + "/" + data.getStringExtra("day") + "/" +  data.getStringExtra("year");
+        String date = data.getStringExtra("month") + "/" + data.getStringExtra("day") + "/" + data.getStringExtra("year");
         String date_time_string = BookAppointmentActivity.convertTime(data.getIntExtra("hour", 0), data.getIntExtra("minute", 0)) + " @ " + date;
         appointment.setText(date_time_string);
 
@@ -69,37 +68,28 @@ public class PaymentActivity extends AppCompatActivity {
         hairstyle.setText(data.getStringExtra("hairstyle"));
 
         EditText name = (EditText) findViewById(R.id.name);
-        
+
         Button payButton = findViewById(R.id.payButton);
-        payButton.setOnClickListener(new Button.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        payButton.setOnClickListener(v -> {
 
-                FirebaseFirestore db = FirebaseFirestore.getInstance();
-                Map<String, Object> appt = new HashMap<>();
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+            Map<String, Object> appt = new HashMap<>();
 
-                appt.put("Customer", name.getText().toString());
-                appt.put("Barber", barber.getText());
-                appt.put("HairStyle", hairstyle.getText());
+            appt.put("Customer", name.getText().toString());
+            appt.put("Barber", barber.getText());
+            appt.put("HairStyle", hairstyle.getText());
 
-                String dateTime =  data.getStringExtra("year")+"-"+data.getStringExtra("month")+"-"+data.getStringExtra("day")+" "+convertTime(data.getIntExtra("hour", 0), data.getIntExtra("minute", 0)) +":"+"00";
-                Log.d("time", dateTime);
-                appt.put("Date", Timestamp.valueOf(dateTime));
+            String dateTime = data.getStringExtra("year") + "-" + data.getStringExtra("month") + "-" + data.getStringExtra("day") + " " + convertTime(data.getIntExtra("hour", 0), data.getIntExtra("minute", 0)) + ":" + "00";
+            Log.d("time", dateTime);
+            appt.put("Date", Timestamp.valueOf(dateTime));
 
 
-                db.collection("Appointments").
-                        add(appt)
-                        .addOnSuccessListener(new OnSuccessListener() {
-                            @Override
-                            public void onSuccess(Object o) {
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                            }
-                        });
-            }
+            db.collection("Appointments").
+                    add(appt)
+                    .addOnSuccessListener((OnSuccessListener) o -> {
+                    })
+                    .addOnFailureListener(e -> {
+                    });
         });
     }
 }

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -18,6 +19,7 @@ import java.util.ArrayList;
 
 public class HairstyleActivity extends AppCompatActivity {
     GridView hairstyleGV;
+    ImageView image;
     Button chooseButton;
     HairstyleModel choice;
     private Context context;
@@ -48,7 +50,7 @@ public class HairstyleActivity extends AppCompatActivity {
                 .get()
                 .addOnSuccessListener(queryDocumentSnapshots -> {
                     for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
-                        HairstyleModel hairstyle = new HairstyleModel(document.getLong("Count"), document.getString("Name"), document.getLong("Price"));
+                        HairstyleModel hairstyle = new HairstyleModel(document.getLong("Count"), document.getString("Name"), document.getLong("Price"), document.getString("Image"));
                         hairstyleModelArrayList.add(hairstyle);
                     }
 

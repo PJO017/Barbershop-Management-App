@@ -4,10 +4,14 @@ import android.app.AlertDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
@@ -15,8 +19,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
+import java.io.File;
+import java.io.IOException;
+
 public class BookAppointmentActivity extends AppCompatActivity {
     TextView hairstyle;
+    ImageView hairstyleIV;
     TextView barber;
     CalendarView calendar;
     String year, month, day;
@@ -51,7 +62,32 @@ public class BookAppointmentActivity extends AppCompatActivity {
         Context context = this;
 
         hairstyle = findViewById(R.id.hairstyleTV);
+        hairstyleIV = findViewById(R.id.hairstyleIV);
         barber = findViewById(R.id.barberTV);
+
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        StorageReference storageRef = storage.getReference();
+
+        String index = data.getStringExtra("hairstyle").split(" ")[1];
+        StorageReference imageRef = storage.getReferenceFromUrl("gs://barbershop-management-app.appspot.com/" + "hairstyle" + index + ".jpg");
+
+        long bytes = 0;
+        File localFile = null;
+        try {
+            localFile = File.createTempFile("image", "jpg");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        assert localFile != null;
+        imageRef.getBytes(30000).addOnSuccessListener(taskSnapshot -> {
+            // Image downloaded successfully
+            Log.d("image", "Image downloaded");
+            Bitmap bitmap = BitmapFactory.decodeByteArray(taskSnapshot, 0, taskSnapshot.length);
+            hairstyleIV.setImageBitmap(bitmap);
+        }).addOnFailureListener(exception -> {
+            // Handle any errors
+            Log.d("image", "Image not downloaded");
+        });
 
         hairstyle.setText(data.getStringExtra("hairstyle"));
         barber.setText(data.getStringExtra("barber"));
