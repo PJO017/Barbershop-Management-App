@@ -16,6 +16,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class HairstyleActivity extends AppCompatActivity {
     GridView hairstyleGV;
@@ -53,6 +55,13 @@ public class HairstyleActivity extends AppCompatActivity {
                         HairstyleModel hairstyle = new HairstyleModel(document.getLong("Count"), document.getString("Name"), document.getLong("Price"), document.getString("Image"));
                         hairstyleModelArrayList.add(hairstyle);
                     }
+                    Comparator<HairstyleModel> byName = new Comparator<HairstyleModel>() {
+                        @Override
+                        public int compare(HairstyleModel h1, HairstyleModel h2) {
+                            return h1.getName().compareTo(h2.getName());
+                        }
+                    };
+                    hairstyleModelArrayList.sort(byName);
 
                     hairstyleGV = findViewById(R.id.idGVHairstyles);
                     HairstyleGVAdapter adapter =
