@@ -18,19 +18,15 @@ import java.util.List;
 
 public class ReviewAdapter extends ArrayAdapter<ReviewItems> {
     private final ArrayList<ReviewItems> reviewData;
-    private int selectedPosition = -1;
+
     public ReviewAdapter(@NonNull Context context, ArrayList<ReviewItems> reviewItemsArrayList) {
         super(context, 0, reviewItemsArrayList);
 
         reviewData = reviewItemsArrayList;
     }
-
-    public void setSelectedPosition (int position) {
-        selectedPosition = position;
-        notifyDataSetChanged();
-
+    public ReviewItems getItem(int position) {
+        return reviewData.get(position);
     }
-
     @NonNull
     @Override
     public View getView (int position, @NonNull View convertView,  @NonNull ViewGroup parent) {

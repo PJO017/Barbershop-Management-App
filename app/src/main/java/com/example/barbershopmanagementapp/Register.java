@@ -41,10 +41,10 @@ public class Register extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if (currentUser != null) {
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        }
+        //FirebaseUser currentUser = mAuth.getCurrentUser();
+       // if (currentUser != null) {
+            //Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+       // }
     }
 
     void goToLogin() {
@@ -119,6 +119,7 @@ public class Register extends AppCompatActivity {
                                     user.put("Name", name);
                                     user.put("Email", email);
                                     user.put("Role", role);
+
 
                                     userRef.set(user)
                                             .addOnSuccessListener(new OnSuccessListener<Void>() {

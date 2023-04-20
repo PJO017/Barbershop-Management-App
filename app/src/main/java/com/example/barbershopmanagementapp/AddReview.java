@@ -26,14 +26,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AddReview extends AppCompatActivity {
-    TextView custName;
-    TextView barbName;
     EditText rev;
     Button buttonRev;
     RatingBar rate;
-    public void openReview (String barber, String review, float rating) {
+    public void openReview (String barber, String review, long rating) {
         Intent intent = new Intent(this, Reviews.class);
-        intent.putExtra("barber", barber);
         intent.putExtra("review", review);
         intent.putExtra("rating", rating);
         startActivity(intent);
@@ -42,10 +39,8 @@ public class AddReview extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reviews);
+        setContentView(R.layout.activity_add_review);
 
-        //custName = findViewById(R.id.cust_name);
-        //barbName = findViewById(R.id.bname);
         rev = (EditText) findViewById(R.id.review_input);
         buttonRev = (Button) findViewById(R.id.btn_review);
         rate = (RatingBar) findViewById(R.id.ratingBar);
@@ -56,8 +51,6 @@ public class AddReview extends AppCompatActivity {
                 FirebaseFirestore db = FirebaseFirestore.getInstance();
                 Map<String, Object> review = new HashMap<>();
 
-                review.put("Customer Name", custName.getText().toString());
-                review.put("Barber Name", barbName.getText().toString());
                 review.put("Review", rev.getText().toString());
                 review.put("Rating", rate.getRating());
                 db.collection("Reviews").
@@ -65,6 +58,9 @@ public class AddReview extends AppCompatActivity {
                         .addOnSuccessListener(new OnSuccessListener() {
                             @Override
                             public void onSuccess(Object o) {
+                                Intent intent = new Intent(AddReview.this, Reviews.class);
+                                startActivity(intent);
+                                finish();
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {

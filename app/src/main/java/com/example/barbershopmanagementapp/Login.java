@@ -31,9 +31,9 @@ public class Login extends AppCompatActivity {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        if (currentUser != null) {
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        }
+        //if (currentUser != null) {
+            //Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        //}
     }
 
     @Override
@@ -75,7 +75,7 @@ public class Login extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
                             //change to point to targeted class
-                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            Intent intent = new Intent(getApplicationContext(), AddReview.class);
                             startActivity(intent);
                             finish();
                         } else {

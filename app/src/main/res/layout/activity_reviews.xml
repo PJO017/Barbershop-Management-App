@@ -1,16 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="15sp"
     tools:context=".Reviews">
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="150sp"
+        app:cardBackgroundColor="#E4E4E4"
+        app:cardElevation="4sp"
+        app:cardCornerRadius="15
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10sp"
+            android:layout_marginTop="15sp">
 
+        <ImageView
+            android:layout_width="100sp"
+            android:layout_height="100sp"
+            android:id="@+id/barberImg"
+            android:src="icons80-name-50"
+            android:contentDescription="@string/barber_profile_picture"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/barberImg"
+            android:paddingTop="15sp"
+            android:layout_marginStart="15sp"
+            android:text="@string/name"
+            android:id="@+id/barber_name" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/barberImg"
+                android:paddingTop="15sp"
+                android:layout_marginStart="15sp"
+                android:layout_below="@+id/barber_name"
+                android:text="@string/rating"
+                android:id="@+id/barber_rating" />
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id= "@+id/recyclerView" />
+        android:layout_height="450sp"
+        android:id="@+id/recyclerView"
+        android:layout_marginTop="15sp">
+    </androidx.recyclerview.widget.RecyclerView>
 
-
-</RelativeLayout>
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/add"
+    android:text="@string/leave_a_review"
+    android:layout_marginTop="15sp"/>
+</LinearLayout>

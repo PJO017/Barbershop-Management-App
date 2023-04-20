@@ -4,11 +4,17 @@ public class ReviewItems {
     String review;
     long rating;
 
+    public String getUser() {
+        return user;
+    }
 
+    public void setUser(String user) {
+        this.user = user;
+    }
 
     String user;
 
-    public ReviewItems(String user, String review, long rating) {
+    public ReviewItems(String review, long rating) {
         this.review = review;
         this.rating = rating;
         this.user = user;
@@ -16,13 +22,6 @@ public class ReviewItems {
 
     public String toString (String user, String review, long rating){
         return ("User" + user + "Review" + review + "Rating" + rating);
-    }
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
     }
     public String getReview() {
         return review;
