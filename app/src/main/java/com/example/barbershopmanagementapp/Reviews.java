@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -19,7 +20,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -30,17 +35,14 @@ import java.util.Map;
 public class Reviews extends AppCompatActivity {
     TextView customer, barber, review, rating;
     Button add;
-    RecyclerView reviewRV;
+    ListView reviews;
     private Context context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reviews);
-
         context = this;
-
-        reviewRV = (RecyclerView) findViewById(R.id.recyclerView);
-
         add = findViewById(R.id.add);
 
         add.setOnClickListener(new View.OnClickListener() {
@@ -56,17 +58,19 @@ public class Reviews extends AppCompatActivity {
         ArrayList<ReviewItems> reviewItemsArrayList = new ArrayList<>();
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("Review").get().addOnSuccessListener(queryDocumentSnapshots -> {
-            for (QueryDocumentSnapshot document: queryDocumentSnapshots) {
-                ReviewItems reviewItems = new ReviewItems(document.getString("Review"), document.getLong("Rating"));
+        CollectionReference reviewsRef = db.collection("Reviews");
+        Query query = reviewsRef.whereEqualTo("Barber", "Barber 2");
+
+        query.get().addOnSuccessListener(queryDocumentSnapshots -> {
+            for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
+                Log.d("Customer", document.getString("Customer"));
+                Log.d("Rating", document.getLong("Rating").toString());
+                ReviewItems reviewItems = new ReviewItems(document.getString("Review"), document.getDouble("Rating"), document.getString("Customer"));
                 reviewItemsArrayList.add(reviewItems);
             }
-
-        });
-        db.collection("Barber").get().addOnSuccessListener(queryDocumentSnapshots -> {
-            for (QueryDocumentSnapshot document: queryDocumentSnapshots) {
-
-            }
+            reviews = findViewById(R.id.reviews_list_view);
+            ReviewAdapter adapter = new ReviewAdapter(context, reviewItemsArrayList);
+            reviews.setAdapter(adapter);
         });
     }
 }

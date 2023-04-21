@@ -2,6 +2,7 @@ package com.example.barbershopmanagementapp;
 
 import android.content.ClipData;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,12 +25,14 @@ public class ReviewAdapter extends ArrayAdapter<ReviewItems> {
 
         reviewData = reviewItemsArrayList;
     }
+
     public ReviewItems getItem(int position) {
         return reviewData.get(position);
     }
+
     @NonNull
     @Override
-    public View getView (int position, @NonNull View convertView,  @NonNull ViewGroup parent) {
+    public View getView(int position, @NonNull View convertView, @NonNull ViewGroup parent) {
         View listItemView = convertView;
         if (listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(R.layout.reviews_view, parent, false);
@@ -39,9 +42,10 @@ public class ReviewAdapter extends ArrayAdapter<ReviewItems> {
         TextView displayRating = listItemView.findViewById(R.id.DisplayRating);
         TextView displayReview = listItemView.findViewById(R.id.DisplayReview);
 
-        revTitle.setText(reviewData.getUser());
+        revTitle.setText(reviewData.getCustomer());
         displayReview.setText(reviewData.getReview());
-        displayRating.setText((int) reviewData.getRating());
+        displayRating.setText(String.valueOf(reviewData.getRating()));
+        Log.d("Review", reviewData.toString());
         return listItemView;
     }
 }

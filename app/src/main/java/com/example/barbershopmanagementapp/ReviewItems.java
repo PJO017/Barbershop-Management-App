@@ -1,28 +1,25 @@
 package com.example.barbershopmanagementapp;
 
+import androidx.annotation.NonNull;
+
 public class ReviewItems {
-    String review;
-    long rating;
+    String review, barber, customer;
+    double rating;
 
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
-    }
-
-    String user;
-
-    public ReviewItems(String review, long rating) {
+    public ReviewItems(String review, double rating, String customer) {
         this.review = review;
         this.rating = rating;
-        this.user = user;
+        this.customer = customer;
     }
 
-    public String toString (String user, String review, long rating){
-        return ("User" + user + "Review" + review + "Rating" + rating);
+    public String getCustomer() {
+        return this.customer;
     }
+
+    public void setCustomer(String customer) {
+        this.customer = customer;
+    }
+
     public String getReview() {
         return review;
     }
@@ -31,11 +28,16 @@ public class ReviewItems {
         this.review = review;
     }
 
-    public long getRating() {
+    public double getRating() {
         return rating;
     }
 
-    public void setRating(long rating) {
+    public void setRating(double rating) {
         this.rating = rating;
+    }
+
+    @NonNull
+    public String toString() {
+        return ("Customer" + this.customer + "Review" + this.review + "Rating" + this.rating);
     }
 }

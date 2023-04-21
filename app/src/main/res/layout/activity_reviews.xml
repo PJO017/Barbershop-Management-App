@@ -9,19 +9,15 @@
     android:padding="15sp"
     tools:context=".Reviews">
 
-
-
-    <androidx.recyclerview.widget.RecyclerView
+    <ListView
+        android:id="@+id/reviews_list_view"
         android:layout_width="match_parent"
-        android:layout_height="420sp"
-        android:id="@+id/recyclerView"
-        android:layout_marginTop="15sp">
-    </androidx.recyclerview.widget.RecyclerView>
+        android:layout_height="619dp" />
 
-<Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/add"
-    android:text="@string/leave_a_review"
-    android:layout_marginTop="15sp"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/add"
+        android:text="@string/leave_a_review"
+        android:layout_marginTop="15sp" />
 </LinearLayout>
