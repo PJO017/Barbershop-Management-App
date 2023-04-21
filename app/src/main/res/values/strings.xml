@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Barbershop Management App</string>
+    <string name="barber_name">Barber Name</string>
+    <string name="barber_rate">Barber Rate</string>
 </resources>

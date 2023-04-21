@@ -1,0 +1,143 @@
+[debug] [2023-04-19T19:55:20.754Z] ----------------------------------------------------------------------
+[debug] [2023-04-19T19:55:20.756Z] Command:       C:\Users\ERYSDE~1\DOWNLO~1\firebase-tools-instant-win (1).exe C:\Users\Erys Dennis\.cache\firebase\tools\lib\node_modules\firebase-tools\lib\bin\firebase emulators:start --project=barbershop-management-app
+[debug] [2023-04-19T19:55:20.756Z] CLI Version:   11.23.1
+[debug] [2023-04-19T19:55:20.756Z] Platform:      win32
+[debug] [2023-04-19T19:55:20.756Z] Node Version:  v16.16.0
+[debug] [2023-04-19T19:55:20.758Z] Time:          Wed Apr 19 2023 15:55:20 GMT-0400 (Eastern Daylight Time)
+[debug] [2023-04-19T19:55:20.758Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-04-19T19:55:20.857Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-04-19T19:55:20.858Z] > authorizing via signed-in user (erysd.school@gmail.com)
+[debug] [2023-04-19T19:55:22.557Z] openjdk version "11.0.16.1" 2022-08-12 LTS
+OpenJDK Runtime Environment Microsoft-40648 (build 11.0.16.1+1-LTS)
+[debug] [2023-04-19T19:55:22.557Z] 
+OpenJDK 64-Bit Server VM Microsoft-40648 (build 11.0.16.1+1-LTS, mixed mode)
+
+[debug] [2023-04-19T19:55:22.572Z] Parsed Java major version: 11
+[info] i  emulators: Starting emulators: auth, database, storage {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, database, storage"}}
+[debug] [2023-04-19T19:55:22.591Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-04-19T19:55:22.591Z] [auth] Authentication Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-04-19T19:55:22.591Z] [database] Database Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-04-19T19:55:22.591Z] [storage] Storage Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-04-19T19:55:22.591Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9099}],"database":[{"address":"127.0.0.1","family":"IPv4","port":9000}],"storage":[{"address":"127.0.0.1","family":"IPv4","port":9199}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[warn] !  emulators: It seems that you are running multiple instances of the emulator suite for project barbershop-management-app. This may result in unexpected behavior. 
+[debug] [2023-04-19T19:55:22.604Z] [hub] writing locator at C:\Users\ERYSDE~1\AppData\Local\Temp\hub-barbershop-management-app.json
+[debug] [2023-04-19T19:55:22.615Z] > refreshing access token with scopes: []
+[debug] [2023-04-19T19:55:22.617Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-04-19T19:55:22.617Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-04-19T19:55:22.665Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
+[debug] [2023-04-19T19:55:22.665Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-04-19T19:55:22.665Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/barbershop-management-app [none]
+[debug] [2023-04-19T19:55:22.698Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/barbershop-management-app 401
+[debug] [2023-04-19T19:55:22.698Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/barbershop-management-app {"error":{"code":401,"message":"Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.","status":"UNAUTHENTICATED"}}
+[debug] [2023-04-19T19:55:22.699Z] HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[debug] [2023-04-19T19:55:22.699Z] Failed to retrieve default database instance: {"name":"FirebaseError","children":[],"exit":2,"message":"Failed to get Firebase project barbershop-management-app. Please make sure the project exists and your account has permission to access it.","original":{"name":"FirebaseError","children":[],"context":{"body":{"error":{"code":401,"message":"Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.","status":"UNAUTHENTICATED"}},"response":{"statusCode":401}},"exit":1,"message":"HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.","status":401},"status":500} {"metadata":{"emulator":{"name":"database"},"message":"Failed to retrieve default database instance: {\"name\":\"FirebaseError\",\"children\":[],\"exit\":2,\"message\":\"Failed to get Firebase project barbershop-management-app. Please make sure the project exists and your account has permission to access it.\",\"original\":{\"name\":\"FirebaseError\",\"children\":[],\"context\":{\"body\":{\"error\":{\"code\":401,\"message\":\"Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.\",\"status\":\"UNAUTHENTICATED\"}},\"response\":{\"statusCode\":401}},\"exit\":1,\"message\":\"HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.\",\"status\":401},\"status\":500}"}}
+[debug] [2023-04-19T19:55:22.699Z] database rules config:  [{"instance":"barbershop-management-app-default-rtdb","rules":"C:\\Users\\Erys Dennis\\Desktop\\AppDev\\PROJ\\Barbershop-Management-App\\database.rules.json"}]
+[debug] [2023-04-19T19:55:22.709Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: projectId"}}
+[debug] [2023-04-19T19:55:22.709Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2023-04-19T19:55:22.709Z] Ignoring unsupported arg: rules {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: rules"}}
+[debug] [2023-04-19T19:55:22.709Z] Starting Database Emulator with command {"binary":"java","args":["-Duser.language=en","-jar","C:\\Users\\Erys Dennis\\.cache\\firebase\\emulators\\firebase-database-emulator-v4.11.0.jar","--host","127.0.0.1","--port",9000,"--single_project_mode","Warning"],"optionalArgs":["port","host","functions_emulator_port","functions_emulator_host","single_project_mode"],"joinArgs":false} {"metadata":{"emulator":{"name":"database"},"message":"Starting Database Emulator with command {\"binary\":\"java\",\"args\":[\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\Erys Dennis\\\\.cache\\\\firebase\\\\emulators\\\\firebase-database-emulator-v4.11.0.jar\",\"--host\",\"127.0.0.1\",\"--port\",9000,\"--single_project_mode\",\"Warning\"],\"optionalArgs\":[\"port\",\"host\",\"functions_emulator_port\",\"functions_emulator_host\",\"single_project_mode\"],\"joinArgs\":false}"}}
+[info] i  database: Database Emulator logging to database-debug.log {"metadata":{"emulator":{"name":"database"},"message":"Database Emulator logging to \u001b[1mdatabase-debug.log\u001b[22m"}}
+[debug] [2023-04-19T19:55:23.933Z] WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by io.netty.util.internal.ReflectionUtil (file:/C:/Users/Erys%20Dennis/.cache/firebase/emulators/firebase-database-emulator-v4.11.0.jar) to field sun.nio.ch.SelectorImpl.selectedKeys
+WARNING: Please consider reporting this to the maintainers of io.netty.util.internal.ReflectionUtil
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+ {"metadata":{"emulator":{"name":"database"},"message":"WARNING: An illegal reflective access operation has occurred\r\nWARNING: Illegal reflective access by io.netty.util.internal.ReflectionUtil (file:/C:/Users/Erys%20Dennis/.cache/firebase/emulators/firebase-database-emulator-v4.11.0.jar) to field sun.nio.ch.SelectorImpl.selectedKeys\r\nWARNING: Please consider reporting this to the maintainers of io.netty.util.internal.ReflectionUtil\r\nWARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations\r\nWARNING: All illegal access operations will be denied in a future release\r\n"}}
+[debug] [2023-04-19T19:55:24.831Z] 15:55:24.829 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+ {"metadata":{"emulator":{"name":"database"},"message":"15:55:24.829 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started\r\n"}}
+[debug] [2023-04-19T19:55:25.126Z] 15:55:25.125 [main] INFO com.firebase.server.forge.App$ - Listening at 127.0.0.1:9000
+ {"metadata":{"emulator":{"name":"database"},"message":"15:55:25.125 [main] INFO com.firebase.server.forge.App$ - Listening at 127.0.0.1:9000\r\n"}}
+[debug] [2023-04-19T19:55:31.767Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"storage"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2023-04-19T19:55:32.943Z] Temp file directory for storage emulator: C:\Users\ERYSDE~1\AppData\Local\Temp/firebase/storage/blobs {"metadata":{"emulator":{"name":"storage"},"message":"Temp file directory for storage emulator: C:\\Users\\ERYSDE~1\\AppData\\Local\\Temp/firebase/storage/blobs"}}
+[debug] [2023-04-19T19:55:32.957Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2023-04-19T19:55:32.958Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2023-04-19T19:55:32.958Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\Erys Dennis\\.cache\\firebase\\emulators\\ui-v1.11.4\\server\\server.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\Erys Dennis\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.11.4\\\\server\\\\server.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2023-04-19T19:55:33.533Z] Web / API server started at 127.0.0.1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at 127.0.0.1:4000\n"}}
+[debug] [2023-04-19T19:55:33.533Z] Web / API server started at ::1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at ::1:4000\n"}}
+[debug] [2023-04-19T19:55:33.752Z] >>> [apiv2][query] PUT http://127.0.0.1:9000/.settings/rules.json ns=barbershop-management-app-default-rtdb
+[debug] [2023-04-19T19:55:33.752Z] >>> [apiv2][body] PUT http://127.0.0.1:9000/.settings/rules.json "{\r\n  \"rules\": {\r\n    \"messages\": {\r\n      \".read\": \"auth.uid != null\",\r\n      \".write\": \"auth.uid != null\"\r\n    }\r\n  }\r\n}\r\n"
+[debug] [2023-04-19T19:55:34.166Z] 15:55:34.166 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO com.firebase.core.namespace.NamespaceActor - barbershop-management-app-default-rtdb successfully activated FBKV (SurveyIdle(0)) wait: 219ms, init: 0ms
+ {"metadata":{"emulator":{"name":"database"},"message":"15:55:34.166 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO com.firebase.core.namespace.NamespaceActor - barbershop-management-app-default-rtdb successfully activated FBKV (SurveyIdle(0)) wait: 219ms, init: 0ms\r\n"}}
+[debug] [2023-04-19T19:55:34.254Z] 15:55:34.253 [NamespaceSystem-blocking-namespace-operation-dispatcher-7] INFO com.firebase.core.namespace.StateManager - Namespace barbershop-management-app-default-rtdb status Active to Active
+ {"metadata":{"emulator":{"name":"database"},"message":"15:55:34.253 [NamespaceSystem-blocking-namespace-operation-dispatcher-7] INFO com.firebase.core.namespace.StateManager - Namespace barbershop-management-app-default-rtdb status Active to Active\r\n"}}
+[debug] [2023-04-19T19:55:34.302Z] <<< [apiv2][status] PUT http://127.0.0.1:9000/.settings/rules.json 200
+[debug] [2023-04-19T19:55:34.302Z] <<< [apiv2][body] PUT http://127.0.0.1:9000/.settings/rules.json {"status":"ok"}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────────┬────────────────┬────────────────────────────────┐
+│ Emulator       │ Host:Port      │ View in Emulator UI            │
+├────────────────┼────────────────┼────────────────────────────────┤
+│ Authentication │ 127.0.0.1:9099 │ http://127.0.0.1:4000/auth     │
+├────────────────┼────────────────┼────────────────────────────────┤
+│ Database       │ 127.0.0.1:9000 │ http://127.0.0.1:4000/database │
+├────────────────┼────────────────┼────────────────────────────────┤
+│ Storage        │ 127.0.0.1:9199 │ http://127.0.0.1:4000/storage  │
+└────────────────┴────────────────┴────────────────────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2023-04-19T19:55:55.314Z] 15:55:55.313 [FirebaseWorkerPool-1-3] WARN com.firebase.core.persistence.backend.dummy.EmulatorMetadataPersistence - Multiple projectIds are not recommended in single project mode. Requested 
+namespace barbershop-management-app, but the emulator is configured for barbershop-management-app-default-rtdb. To 
+opt-out of single project mode add/set the single_project_mode: false property in 
+the firebase.json emulators config. 
+ {"metadata":{"emulator":{"name":"database"},"message":"15:55:55.313 [FirebaseWorkerPool-1-3] WARN com.firebase.core.persistence.backend.dummy.EmulatorMetadataPersistence - Multiple projectIds are not recommended in single project mode. Requested \nnamespace barbershop-management-app, but the emulator is configured for barbershop-management-app-default-rtdb. To \nopt-out of single project mode add/set the single_project_mode: false property in \nthe firebase.json emulators config. \r\n"}}
+[debug] [2023-04-19T19:55:55.327Z] 15:55:55.326 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO com.firebase.core.namespace.NamespaceActor - barbershop-management-app successfully activated FBKV (SurveyIdle(0)) wait: 7ms, init: 0ms
+ {"metadata":{"emulator":{"name":"database"},"message":"15:55:55.326 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO com.firebase.core.namespace.NamespaceActor - barbershop-management-app successfully activated FBKV (SurveyIdle(0)) wait: 7ms, init: 0ms\r\n"}}
+[error] 
+[debug] [2023-04-19T19:58:06.572Z] ----------------------------------------------------------------------
+[debug] [2023-04-19T19:58:06.574Z] Command:       C:\Users\ERYSDE~1\DOWNLO~1\firebase-tools-instant-win (1).exe C:\Users\Erys Dennis\.cache\firebase\tools\lib\node_modules\firebase-tools\lib\bin\firebase init
+[debug] [2023-04-19T19:58:06.574Z] CLI Version:   11.23.1
+[debug] [2023-04-19T19:58:06.574Z] Platform:      win32
+[debug] [2023-04-19T19:58:06.574Z] Node Version:  v16.16.0
+[debug] [2023-04-19T19:58:06.575Z] Time:          Wed Apr 19 2023 15:58:06 GMT-0400 (Eastern Daylight Time)
+[debug] [2023-04-19T19:58:06.575Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-04-19T19:58:06.647Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-04-19T19:58:06.647Z] > authorizing via signed-in user (erysd.school@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Erys Dennis\Desktop\AppDev\PROJ\Barbershop-Management-App
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2023-04-19T19:58:39.819Z] > refreshing access token with scopes: []
+[debug] [2023-04-19T19:58:39.821Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-04-19T19:58:39.821Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-04-19T19:58:39.884Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
+[debug] [2023-04-19T19:58:39.885Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-04-19T19:58:39.885Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2023-04-19T19:58:39.924Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 401
+[debug] [2023-04-19T19:58:39.924Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2023-04-19T19:58:39.924Z] HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[debug] [2023-04-19T19:58:39.954Z] FirebaseError: HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at responseToError (C:\Users\Erys Dennis\.cache\firebase\tools\lib\node_modules\firebase-tools\lib\responseToError.js:49:12)
+    at RetryOperation._fn (C:\Users\Erys Dennis\.cache\firebase\tools\lib\node_modules\firebase-tools\lib\apiv2.js:288:77)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[error] 
+[error] Error: Failed to list Firebase projects. See firebase-debug.log for more info.

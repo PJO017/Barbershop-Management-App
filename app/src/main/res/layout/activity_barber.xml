@@ -1,47 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BarberActivity">
+    android:orientation="vertical">
 
-<!--    <TextView-->
-<!--        android:id="@+id/textView"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="56dp"-->
-<!--        android:layout_marginEnd="88dp"-->
-<!--        android:text="Select A Barber"-->
-<!--        android:textAppearance="@style/TextAppearance.AppCompat.Display1"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
-
-    <androidx.recyclerview.widget.RecyclerView
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/barberRV" />
+        android:text="Show all favorites"
+        android:id="@+id/favorites"/>
 
-<!--    <Button-->
-<!--        android:id="@+id/select_button"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginEnd="156dp"-->
-<!--        android:layout_marginBottom="48dp"-->
-<!--        android:text="Select"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent" />-->
 
-<!--    <Button-->
-<!--        android:id="@+id/button"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginEnd="172dp"-->
-<!--        android:layout_marginBottom="436dp"-->
-<!--        android:onClick="getBarbers"-->
-<!--        android:text="FB Test"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent" />-->
-</RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/layout"
+            android:orientation="vertical">
 
-<!--change to scrollview-->
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="56dp"
+                android:layout_marginEnd="88dp"
+                android:text="Select A Barber"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
