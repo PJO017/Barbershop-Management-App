@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">Barbershop Management App</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
+    <string name="login_now">Login</string>
+    <string name="click_to_register">Create an account</string>
+    <string name="logout">Logout</string>
+    <string name="review">Review</string>
+    <string name="cust">Customer Name</string>
+    <string name="barb">Barber Name</string>
+    <string name="reg_text">Don\'t have an account?</string>
+    <string name="login_text">Already have an account?</string>
+    <string name="name">Name</string>
+    <string name="leave_review">Leave a Review</string>
+    <string name="barber_profile_picture">Barber Profile Picture</string>
+    <string name="rating">Rating</string>
+    <string name="leave_a_review">Leave a Review</string>
+    <string name="test_review">Review.Review.Review.Review.Review.Review.Review.Review.Review.Review.Review.Review.Review.Review.Review.Review.Review.Review.ReviewReview.Review.Review.Review.Review.Review.</string>
 </resources>
