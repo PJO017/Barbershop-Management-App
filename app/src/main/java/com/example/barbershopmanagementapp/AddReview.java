@@ -48,25 +48,6 @@ public class AddReview extends AppCompatActivity {
 
 
 
-        ArrayList<Float> userRatings = new ArrayList<>();
-        Intent intent = new Intent(AddReview.this, Reviews.class);
-        intent.putExtra("Average rating", userRatings);
-        rate.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-            @Override
-            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                userRatings.add(rating);
-                double totalRating = 0;
-                int ratingCount = 0;
-
-                for (float userRating : userRatings) {
-                    totalRating += userRating;
-                    ratingCount++;
-                }
-
-                double averageRating = totalRating / ratingCount;
-            }
-        });
-
         buttonRev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

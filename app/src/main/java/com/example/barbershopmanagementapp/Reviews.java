@@ -66,8 +66,8 @@ public class Reviews extends AppCompatActivity {
         ArrayList<ReviewItems> reviewItemsArrayList = new ArrayList<>();
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-
         CollectionReference reviewsRef = db.collection("Reviews");
+
         Query query = reviewsRef.whereEqualTo("Barber", "Barber 2");
 
         Task<QuerySnapshot> task = reviewsRef.get();
@@ -87,7 +87,7 @@ public class Reviews extends AppCompatActivity {
                     }
                     double averageRating = totalRating / count;
                     DecimalFormat decimalFormat = new DecimalFormat("#.##");
-                    Log.d(TAG, "Average rating: " + averageRating);
+
                     displayRating.setText(String.valueOf(decimalFormat.format(averageRating)));
                 } else {
                     Log.d(TAG, "Error getting documents: ", task.getException());
