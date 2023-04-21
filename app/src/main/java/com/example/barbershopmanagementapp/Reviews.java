@@ -33,6 +33,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class Reviews extends AppCompatActivity {
     TextView customer, barber, review, rating, displayName, displayRating;
@@ -50,18 +51,17 @@ public class Reviews extends AppCompatActivity {
         displayRating = findViewById(R.id.barber_rating);
         add = findViewById(R.id.add);
 
-
-        displayName.setText("Barber 1");
+        displayName.setText("Barber 2");
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Reviews.this, AddReview.class);
+                intent.putExtra("Barber", displayName.getText());
                 startActivity(intent);
                 finish();
             }
         });
-
 
         ArrayList<ReviewItems> reviewItemsArrayList = new ArrayList<>();
 
@@ -70,38 +70,19 @@ public class Reviews extends AppCompatActivity {
 
         Query query = reviewsRef.whereEqualTo("Barber", "Barber 2");
 
-        Task<QuerySnapshot> task = reviewsRef.get();
-
-        task.addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()) {
-                    double totalRating = 0;
-                    int count = 0;
-                    for (DocumentSnapshot document : task.getResult()) {
-                        if (document.contains("Rating")) {
-                            double rating = document.getDouble("Rating");
-                            totalRating += rating;
-                            count++;
-                        }
-                    }
-                    double averageRating = totalRating / count;
-                    DecimalFormat decimalFormat = new DecimalFormat("#.##");
-
-                    displayRating.setText(String.valueOf(decimalFormat.format(averageRating)));
-                } else {
-                    Log.d(TAG, "Error getting documents: ", task.getException());
-                }
-            }
-        });
-
         query.get().addOnSuccessListener(queryDocumentSnapshots -> {
+            Double avgRating = 0.0;
+            int count = 0;
             for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
+                avgRating += document.getDouble("Rating");
+                count++;
                 Log.d("Customer", document.getString("Customer"));
                 Log.d("Rating", document.getLong("Rating").toString());
                 ReviewItems reviewItems = new ReviewItems(document.getString("Review"), document.getDouble("Rating"), document.getString("Customer"));
+                Log.d("Review", reviewItems.toString());
                 reviewItemsArrayList.add(reviewItems);
             }
+            displayRating.setText(String.valueOf(avgRating / count));
             reviews = findViewById(R.id.reviews_list_view);
             ReviewAdapter adapter = new ReviewAdapter(context, reviewItemsArrayList);
             reviews.setAdapter(adapter);
