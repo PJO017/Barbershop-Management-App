@@ -12,5 +12,65 @@
         <name>Kevin Malone</name>
         <appointment_time>11:30 AM</appointment_time>
     </customer>
+    <customer>
+        <name>Michael Scott</name>
+        <appointment_time>08:00 AM</appointment_time>
+    </customer>
+    <customer>
+        <name>Jim Halpert</name>
+        <appointment_time>09:15 AM</appointment_time>
+    </customer>
+    <customer>
+        <name>Kevin Malone</name>
+        <appointment_time>11:30 AM</appointment_time>
+    </customer>
+    <customer>
+        <name>Michael Scott</name>
+        <appointment_time>08:00 AM</appointment_time>
+    </customer>
+    <customer>
+        <name>Jim Halpert</name>
+        <appointment_time>09:15 AM</appointment_time>
+    </customer>
+    <customer>
+        <name>Kevin Malone</name>
+        <appointment_time>11:30 AM</appointment_time>
+    </customer>
+    <customer>
+        <name>Michael Scott</name>
+        <appointment_time>08:00 AM</appointment_time>
+    </customer>
+    <customer>
+        <name>Jim Halpert</name>
+        <appointment_time>09:15 AM</appointment_time>
+    </customer>
+    <customer>
+        <name>Kevin Malone</name>
+        <appointment_time>11:30 AM</appointment_time>
+    </customer>
+    <customer>
+        <name>Michael Scott</name>
+        <appointment_time>08:00 AM</appointment_time>
+    </customer>
+    <customer>
+        <name>Jim Halpert</name>
+        <appointment_time>09:15 AM</appointment_time>
+    </customer>
+    <customer>
+        <name>Kevin Malone</name>
+        <appointment_time>11:30 AM</appointment_time>
+    </customer>
+    <customer>
+        <name>Michael Scott</name>
+        <appointment_time>08:00 AM</appointment_time>
+    </customer>
+    <customer>
+        <name>Jim Halpert</name>
+        <appointment_time>09:15 AM</appointment_time>
+    </customer>
+    <customer>
+        <name>Kevin Malone</name>
+        <appointment_time>11:30 AM</appointment_time>
+    </customer>
     <!-- Add more customers here -->
 </customers>

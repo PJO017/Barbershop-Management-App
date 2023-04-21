@@ -13,6 +13,13 @@
         android:theme="@style/Theme.BarbershopManagementApp"
         tools:targetApi="31">
         <activity
+            android:name=".fragment_edit_customer"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".appointment_item"
             android:exported="false">
             <meta-data

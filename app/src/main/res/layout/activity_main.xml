@@ -7,6 +7,7 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"
@@ -19,8 +20,14 @@
         android:id="@+id/go_to_dashboard_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="155dp"
+        android:layout_marginTop="207dp"
+        android:layout_marginEnd="168dp"
+        android:layout_marginBottom="101dp"
         android:text="GO"
-        tools:layout_editor_absoluteX="155dp"
-        tools:layout_editor_absoluteY="207dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
