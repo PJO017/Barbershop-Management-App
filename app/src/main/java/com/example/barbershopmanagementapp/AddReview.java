@@ -22,6 +22,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -44,6 +45,27 @@ public class AddReview extends AppCompatActivity {
         rev = (EditText) findViewById(R.id.review_input);
         buttonRev = (Button) findViewById(R.id.btn_review);
         rate = (RatingBar) findViewById(R.id.ratingBar);
+
+
+
+        ArrayList<Float> userRatings = new ArrayList<>();
+        Intent intent = new Intent(AddReview.this, Reviews.class);
+        intent.putExtra("Average rating", userRatings);
+        rate.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                userRatings.add(rating);
+                double totalRating = 0;
+                int ratingCount = 0;
+
+                for (float userRating : userRatings) {
+                    totalRating += userRating;
+                    ratingCount++;
+                }
+
+                double averageRating = totalRating / ratingCount;
+            }
+        });
 
         buttonRev.setOnClickListener(new View.OnClickListener() {
             @Override

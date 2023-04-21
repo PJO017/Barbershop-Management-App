@@ -9,10 +9,53 @@
     android:padding="15sp"
     tools:context=".Reviews">
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#E4E4E4"
+        android:elevation="4sp"
+        app:cardCornerRadius="15sp"
+        android:layout_marginBottom="15sp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10sp"
+        android:layout_marginTop="15sp">
+
+        <ImageView
+            android:layout_width="100sp"
+            android:layout_height="100sp"
+            android:id="@+id/barberImg"
+            android:src="@drawable/barber_icon"
+            android:contentDescription="@string/barber_profile_picture" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/barberImg"
+            android:paddingTop="20sp"
+            android:layout_marginStart="15sp"
+            android:text="@string/name"
+            android:id="@+id/barber_name" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/barberImg"
+            android:paddingTop="20sp"
+            android:layout_marginStart="15sp"
+            android:layout_below="@+id/barber_name"
+            android:text="@string/rating"
+            android:id="@+id/barber_rating" />
+    </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
     <ListView
         android:id="@+id/reviews_list_view"
         android:layout_width="match_parent"
-        android:layout_height="619dp" />
+        android:layout_height="450dp" />
 
     <Button
         android:layout_width="wrap_content"
