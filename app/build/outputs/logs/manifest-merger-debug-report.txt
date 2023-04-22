@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Erys Dennis\Desktop\AppDev\PROJ\Barbershop-Management-App\app\src\main\AndroidManifest.xml:2:1-35:12
-INJECTED from C:\Users\Erys Dennis\Desktop\AppDev\PROJ\Barbershop-Management-App\app\src\main\AndroidManifest.xml:2:1-35:12
-INJECTED from C:\Users\Erys Dennis\Desktop\AppDev\PROJ\Barbershop-Management-App\app\src\main\AndroidManifest.xml:2:1-35:12
-INJECTED from C:\Users\Erys Dennis\Desktop\AppDev\PROJ\Barbershop-Management-App\app\src\main\AndroidManifest.xml:2:1-35:12
+ADDED from C:\Users\Erys Dennis\Desktop\AppDev\PROJ\Barbershop-Management-App\app\src\main\AndroidManifest.xml:2:1-39:12
+INJECTED from C:\Users\Erys Dennis\Desktop\AppDev\PROJ\Barbershop-Management-App\app\src\main\AndroidManifest.xml:2:1-39:12
+INJECTED from C:\Users\Erys Dennis\Desktop\AppDev\PROJ\Barbershop-Management-App\app\src\main\AndroidManifest.xml:2:1-39:12
+INJECTED from C:\Users\Erys Dennis\Desktop\AppDev\PROJ\Barbershop-Management-App\app\src\main\AndroidManifest.xml:2:1-39:12
 MERGED from [androidx.databinding:viewbinding:7.3.1] C:\Users\Erys Dennis\.gradle\caches\transforms-3\b98e1a928def740e08642e29ccf475d4\transformed\viewbinding-7.3.1\AndroidManifest.xml:2:1-9:12
 MERGED from [com.firebaseui:firebase-ui-firestore:8.0.2] C:\Users\Erys Dennis\.gradle\caches\transforms-3\5c8adebc1c3e9d5e904fb42c410a9c25\transformed\firebase-ui-firestore-8.0.2\AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.firebase:firebase-firestore:24.4.5] C:\Users\Erys Dennis\.gradle\caches\transforms-3\5c4e1bb9ff531f4b8a70c6ab1a6dd645\transformed\firebase-firestore-24.4.5\AndroidManifest.xml:2:1-25:12
@@ -86,27 +86,27 @@ MERGED from [androidx.print:print:1.0.0] C:\Users\Erys Dennis\.gradle\caches\tra
 MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] C:\Users\Erys Dennis\.gradle\caches\transforms-3\c002c62e1fc78df7ca095d2d4c1f7129\transformed\protolite-well-known-types-18.0.0\AndroidManifest.xml:2:1-11:12
 MERGED from [io.grpc:grpc-android:1.52.1] C:\Users\Erys Dennis\.gradle\caches\transforms-3\39c1e507a828f4ba639ded236f015b60\transformed\grpc-android-1.52.1\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.annotation:annotation-experimental:1.3.0] C:\Users\Erys Dennis\.gradle\caches\transforms-3\28e4abb5e3d5c7ab680c474b74f5f765\transformed\annotation-experimental-1.3.0\AndroidManifest.xml:17:1-22:12
-INJECTED from C:\Users\Erys Dennis\Desktop\AppDev\PROJ\Barbershop-Management-App\app\src\main\AndroidManifest.xml:2:1-35:12
-INJECTED from C:\Users\Erys Dennis\Desktop\AppDev\PROJ\Barbershop-Management-App\app\src\main\AndroidManifest.xml:2:1-35:12
-INJECTED from C:\Users\Erys Dennis\Desktop\AppDev\PROJ\Barbershop-Management-App\app\src\main\AndroidManifest.xml:2:1-35:12
+INJECTED from C:\Users\Erys Dennis\Desktop\AppDev\PROJ\Barbershop-Management-App\app\src\main\AndroidManifest.xml:2:1-39:12
+INJECTED from C:\Users\Erys Dennis\Desktop\AppDev\PROJ\Barbershop-Management-App\app\src\main\AndroidManifest.xml:2:1-39:12
+INJECTED from C:\Users\Erys Dennis\Desktop\AppDev\PROJ\Barbershop-Management-App\app\src\main\AndroidManifest.xml:2:1-39:12
 	package
 		INJECTED from C:\Users\Erys Dennis\Desktop\AppDev\PROJ\Barbershop-Management-App\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Erys Dennis\Desktop\AppDev\PROJ\Barbershop-Management-App\app\src\main\AndroidManifest.xml:2:1-35:12
+		ADDED from C:\Users\Erys Dennis\Desktop\AppDev\PROJ\Barbershop-Management-App\app\src\main\AndroidManifest.xml:2:1-39:12
 		INJECTED from C:\Users\Erys Dennis\Desktop\AppDev\PROJ\Barbershop-Management-App\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\Erys Dennis\Desktop\AppDev\PROJ\Barbershop-Management-App\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Erys Dennis\Desktop\AppDev\PROJ\Barbershop-Management-App\app\src\main\AndroidManifest.xml:2:1-35:12
+		ADDED from C:\Users\Erys Dennis\Desktop\AppDev\PROJ\Barbershop-Management-App\app\src\main\AndroidManifest.xml:2:1-39:12
 		INJECTED from C:\Users\Erys Dennis\Desktop\AppDev\PROJ\Barbershop-Management-App\app\src\main\AndroidManifest.xml
 	xmlns:tools
 		ADDED from C:\Users\Erys Dennis\Desktop\AppDev\PROJ\Barbershop-Management-App\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from C:\Users\Erys Dennis\Desktop\AppDev\PROJ\Barbershop-Management-App\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Erys Dennis\Desktop\AppDev\PROJ\Barbershop-Management-App\app\src\main\AndroidManifest.xml:2:1-35:12
+		ADDED from C:\Users\Erys Dennis\Desktop\AppDev\PROJ\Barbershop-Management-App\app\src\main\AndroidManifest.xml:2:1-39:12
 		INJECTED from C:\Users\Erys Dennis\Desktop\AppDev\PROJ\Barbershop-Management-App\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\Erys Dennis\Desktop\AppDev\PROJ\Barbershop-Management-App\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\Erys Dennis\Desktop\AppDev\PROJ\Barbershop-Management-App\app\src\main\AndroidManifest.xml:5:5-33:19
+ADDED from C:\Users\Erys Dennis\Desktop\AppDev\PROJ\Barbershop-Management-App\app\src\main\AndroidManifest.xml:5:5-37:19
 MERGED from [com.google.firebase:firebase-firestore:24.4.5] C:\Users\Erys Dennis\.gradle\caches\transforms-3\5c4e1bb9ff531f4b8a70c6ab1a6dd645\transformed\firebase-firestore-24.4.5\AndroidManifest.xml:15:5-23:19
 MERGED from [com.google.firebase:firebase-firestore:24.4.5] C:\Users\Erys Dennis\.gradle\caches\transforms-3\5c4e1bb9ff531f4b8a70c6ab1a6dd645\transformed\firebase-firestore-24.4.5\AndroidManifest.xml:15:5-23:19
 MERGED from [com.google.firebase:firebase-core:21.1.1] C:\Users\Erys Dennis\.gradle\caches\transforms-3\7f9c850ba6d194bf261577e25e8c5452\transformed\firebase-core-21.1.1\AndroidManifest.xml:7:5-20
@@ -215,6 +215,12 @@ ADDED from C:\Users\Erys Dennis\Desktop\AppDev\PROJ\Barbershop-Management-App\ap
 		ADDED from C:\Users\Erys Dennis\Desktop\AppDev\PROJ\Barbershop-Management-App\app\src\main\AndroidManifest.xml:31:17-33
 	android:name
 		ADDED from C:\Users\Erys Dennis\Desktop\AppDev\PROJ\Barbershop-Management-App\app\src\main\AndroidManifest.xml:30:17-52
+activity#com.example.barbershopmanagementapp.FavoriteActivity
+ADDED from C:\Users\Erys Dennis\Desktop\AppDev\PROJ\Barbershop-Management-App\app\src\main\AndroidManifest.xml:33:9-35:39
+	android:exported
+		ADDED from C:\Users\Erys Dennis\Desktop\AppDev\PROJ\Barbershop-Management-App\app\src\main\AndroidManifest.xml:35:13-37
+	android:name
+		ADDED from C:\Users\Erys Dennis\Desktop\AppDev\PROJ\Barbershop-Management-App\app\src\main\AndroidManifest.xml:34:13-45
 uses-sdk
 INJECTED from C:\Users\Erys Dennis\Desktop\AppDev\PROJ\Barbershop-Management-App\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Erys Dennis\Desktop\AppDev\PROJ\Barbershop-Management-App\app\src\main\AndroidManifest.xml

@@ -52,10 +52,10 @@ public class BarberActivity extends AppCompatActivity {
                         List<DocumentSnapshot> snapshotList = queryDocumentSnapshots.getDocuments();
                         for (DocumentSnapshot snapshot: snapshotList) {
                             Log.d(TAG, "onSuccess: " + snapshot.getString("Name"));
-                            Log.d(TAG, "onSuccess: " + snapshot.getLong("Rating"));
+                            Log.d(TAG, "onSuccess: " + snapshot.getDouble("Rating"));
 
                             createBarbers(snapshot.getString("Name"),
-                                    String.valueOf(snapshot.getLong("Rating")), snapshot.getId());
+                                    String.valueOf(snapshot.getDouble("Rating")), snapshot.getId());
 
 
                         }
@@ -184,6 +184,8 @@ public class BarberActivity extends AppCompatActivity {
                             if (barbName.equals(snapshot.getString("Barber"))){
                                 Log.d(TAG, "barber " + barbName + " = " + snapshot.getString("Barber"));
                                 button.setBackgroundResource(R.drawable.on);
+                            }else{
+                                button.setBackgroundResource(R.drawable.off);
                             }
                         }
                     }

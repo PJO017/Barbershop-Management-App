@@ -21,6 +21,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.List;
@@ -43,6 +44,28 @@ public class FavoriteActivity extends AppCompatActivity {
 
         //        email  = mAuth.getCurrentUser().getEmail();
         email = "user@email.com"; //to be deleted for testing purposes
+
+        db.collection("Users").orderBy("Fav Barbers", Query.Direction.ASCENDING)
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        Log.d(TAG, "onSuccess: Data retrieved");
+
+                        List<DocumentSnapshot> snapshotList = queryDocumentSnapshots.getDocuments();
+                        for (DocumentSnapshot snapshot: snapshotList) {
+                            Log.d(TAG, "onSuccess: " + snapshot.toString());
+
+//                            createFave(snapshot.getString("Barber"), snapshot.getId());
+                        }
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.e(TAG, "onFailure: ", e);
+                    }
+                });
+
 
         db.collection("Favorites").whereEqualTo("User", email)
             .get()
