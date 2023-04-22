@@ -30,6 +30,7 @@ public class FavoriteActivity extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     FirebaseAuth mAuth;
     String email;
+
     LinearLayout layout;
 
 

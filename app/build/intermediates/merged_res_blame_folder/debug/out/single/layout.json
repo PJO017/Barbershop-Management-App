@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "C:\\Users\\Erys Dennis\\.gradle\\daemon\\7.5\\com.example.barbershopmanagementapp-mergeDebugResources-36:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\Erys Dennis\\.gradle\\daemon\\7.5\\com.example.barbershopmanagementapp-main-39:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "com.example.barbershopmanagementapp-mergeDebugResources-36:/layout/activity_main.xml",
+        "source": "com.example.barbershopmanagementapp-main-39:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.barbershopmanagementapp-mergeDebugResources-36:/layout/activity_favorite.xml",
+        "source": "com.example.barbershopmanagementapp-main-39:/layout/activity_favorite.xml"
+    },
+    {
+        "merged": "com.example.barbershopmanagementapp-mergeDebugResources-36:/layout/favorite_view.xml",
+        "source": "com.example.barbershopmanagementapp-main-39:/layout/favorite_view.xml"
+    },
+    {
+        "merged": "C:\\Users\\Erys Dennis\\.gradle\\daemon\\7.5\\com.example.barbershopmanagementapp-mergeDebugResources-36:\\layout\\activity_barber.xml",
+        "source": "C:\\Users\\Erys Dennis\\.gradle\\daemon\\7.5\\com.example.barbershopmanagementapp-main-39:\\layout\\activity_barber.xml"
+    },
+    {
+        "merged": "C:\\Users\\Erys Dennis\\.gradle\\daemon\\7.5\\com.example.barbershopmanagementapp-mergeDebugResources-36:\\layout\\barber_view.xml",
+        "source": "C:\\Users\\Erys Dennis\\.gradle\\daemon\\7.5\\com.example.barbershopmanagementapp-main-39:\\layout\\barber_view.xml"
+    }
+]
