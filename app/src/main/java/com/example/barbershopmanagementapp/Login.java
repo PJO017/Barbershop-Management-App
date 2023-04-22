@@ -47,6 +47,12 @@ public class Login extends AppCompatActivity {
                                 startActivity(intent);
                                 finish();
                             }
+                            else if (Objects.equals(role, "Barber"))
+                            {
+                                Intent intent = new Intent(getApplicationContext(), Dashboard.class);
+                                startActivity(intent);
+                                finish();
+                            }
                         }
                     })
                     .addOnFailureListener(e -> {
