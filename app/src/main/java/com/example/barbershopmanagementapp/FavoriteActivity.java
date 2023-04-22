@@ -10,8 +10,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -28,8 +30,6 @@ public class FavoriteActivity extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     FirebaseAuth mAuth;
     String email;
-    Button bt;
-
     LinearLayout layout;
 
 
@@ -72,7 +72,7 @@ public class FavoriteActivity extends AppCompatActivity {
         View view = getLayoutInflater().inflate(R.layout.favorite_view, null);
 
         TextView nameView = view.findViewById(R.id.faveName);
-        Button delete = view.findViewById(R.id.delFave);
+        ImageButton delete = view.findViewById(R.id.delFave);
 
         nameView.setText(barber);
 

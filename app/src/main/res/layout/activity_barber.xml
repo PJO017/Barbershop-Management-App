@@ -1,37 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Show all favorites"
-        android:id="@+id/favorites"/>
+        android:text="Select A Barber"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
+    <ImageButton
+        android:id="@+id/bookmark"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignRight="@id/textView"
+        android:background="@drawable/favorite"
+        android:contentDescription="show all favorites button" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/scrollView">
+        android:id="@+id/scrollView"
+        android:contentDescription="list of barbers"
+        android:layout_below="@id/textView">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/layout"
-            android:orientation="vertical">
+            android:orientation="vertical"/>
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="56dp"
-                android:layout_marginEnd="88dp"
-                android:text="Select A Barber"
-                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </LinearLayout>
     </ScrollView>
-</LinearLayout>
+</RelativeLayout>
