@@ -94,10 +94,12 @@ public class Dashboard extends AppCompatActivity {
             customerViews.put(customer, itemView); // Store the view for each customer
             TextView customerName = itemView.findViewById(R.id.customer_name);
             TextView appointmentTime = itemView.findViewById(R.id.appointment_time);
+            TextView BarberName = itemView.findViewById(R.id.barber_name_textview);
             ImageButton optionsButton = itemView.findViewById(R.id.delete_button);
 
-            customerName.setText(customer.getCustomer());
+            customerName.setText("Customer: "+customer.getCustomer());
             appointmentTime.setText(customer.getFormattedDate());
+            BarberName.setText("Barber: " + customer.getBarber());
 
             optionsButton.setOnClickListener(new View.OnClickListener() {
                 @Override

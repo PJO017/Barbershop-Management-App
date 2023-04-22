@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -23,6 +24,7 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Ownerdashboard extends AppCompatActivity {
 
@@ -32,7 +34,8 @@ public class Ownerdashboard extends AppCompatActivity {
 
     //Initialize total customers this week and a fixed price for a haircut
     int totalCustomers = 0;
-    int priceOfHaircut = 15;
+    HashMap<String, Integer> hairstylePrices = new HashMap<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,6 +119,24 @@ public class Ownerdashboard extends AppCompatActivity {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         CollectionReference collectionRef = db.collection("Appointments");
 
+        FirebaseFirestore db2 = FirebaseFirestore.getInstance();
+        CollectionReference collectionRef2 = db.collection("Hairstyles");
+
+
+        //here we get the hairstyles from the Hairstyle database
+        collectionRef2.get().addOnSuccessListener(querySnapshot -> {
+            for (QueryDocumentSnapshot documentSnapshot : querySnapshot) {
+                String hairstyleName = documentSnapshot.getString("Name");
+                int hairstylePrice = documentSnapshot.getLong("Price").intValue();
+                hairstylePrices.put(hairstyleName, hairstylePrice);
+            }
+        }).addOnFailureListener(e -> {
+            Log.e("Error", "an error occurred while fetching Hairstyles collection: " + e.getMessage());
+            Toast.makeText(Ownerdashboard.this, "error fetching Hairstyles data. please try again later.", Toast.LENGTH_SHORT).show();
+        });
+
+        AtomicInteger totalSalesAmount = new AtomicInteger();
+
         ArrayList<String> appt_dates = new ArrayList<String>();
 
         // Get all appts from firestore
@@ -136,11 +157,17 @@ public class Ownerdashboard extends AppCompatActivity {
                             int count = currentWeek.get(curDay);
                             currentWeek.put(curDay, count + 1);
 
+                            //accumulate the costs by adding the cost of each haircut.
+                            String hairstyle = documentSnapshot.getString("HairStyle");
+                            int hairstylePrice = hairstylePrices.getOrDefault(hairstyle, 0);
+                            Log.d("Price", "Retrieved price for " + hairstyle + ": " + hairstylePrice);
 
+                            totalSalesAmount.addAndGet(hairstylePrice);
                             break;
                         }
                     }
                 }
+
             }
 
             for (Map.Entry<String, Integer> entry : currentWeek.entrySet()) {
@@ -181,10 +208,10 @@ public class Ownerdashboard extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
-            //Set the total sales TextView to the number of total sales
-            int sales = totalCustomers * priceOfHaircut;
-            totalSales.setText("$" + String.valueOf(sales));
-            Log.d("count",  "$"+String.valueOf(sales) );
+
+            //here the text for the TextView totalSales is set the the accumulated cost in totalSalesAmount
+            totalSales.setText("$" + String.valueOf(totalSalesAmount.get()));
+            Log.d("count",  "$"+String.valueOf(totalSalesAmount.get()));
 
 
         }).addOnFailureListener(e -> {
