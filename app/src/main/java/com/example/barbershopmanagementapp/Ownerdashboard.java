@@ -1,22 +1,20 @@
 package com.example.barbershopmanagementapp;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Month;
 import java.time.YearMonth;
 import java.time.format.TextStyle;
 import java.util.ArrayList;
@@ -26,11 +24,18 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Ownerdashboard extends AppCompatActivity {
 
-    TextView textView, textView2, textView3, textView4, textView6, textView7, textView8, textView16;
+    TextView textView, textView2, textView3, textView4, textView6, textView7, textView8, textView16, totalSales;
     TextView sundayNum, mondayNum, tuesdayNum, wednesdayNum, thursdayNum, fridayNum, saturdayNum;
+    Button manageAppointments;
+
+    //Initialize total customers this week and a fixed price for a haircut
+    int totalCustomers = 0;
+    HashMap<String, Integer> hairstylePrices = new HashMap<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +58,9 @@ public class Ownerdashboard extends AppCompatActivity {
         fridayNum = findViewById(R.id.fridayNum);
         saturdayNum = findViewById(R.id.saturdayNum);
 
+        totalSales = findViewById(R.id.SalesTotal);
+
+
         //initialize total number of daily customers
         int numCustomers = 0;
         textView8.setText(Integer.toString(numCustomers));
@@ -72,6 +80,9 @@ public class Ownerdashboard extends AppCompatActivity {
         fridayNum.setText(Integer.toString(friday));
         int saturday = 0;
         saturdayNum.setText(Integer.toString(saturday));
+
+
+
 
         Map<String, Integer> currentWeek = new HashMap<String, Integer>();
 
@@ -108,6 +119,24 @@ public class Ownerdashboard extends AppCompatActivity {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         CollectionReference collectionRef = db.collection("Appointments");
 
+        FirebaseFirestore db2 = FirebaseFirestore.getInstance();
+        CollectionReference collectionRef2 = db.collection("Hairstyles");
+
+
+        //here we get the hairstyles from the Hairstyle database
+        collectionRef2.get().addOnSuccessListener(querySnapshot -> {
+            for (QueryDocumentSnapshot documentSnapshot : querySnapshot) {
+                String hairstyleName = documentSnapshot.getString("Name");
+                int hairstylePrice = documentSnapshot.getLong("Price").intValue();
+                hairstylePrices.put(hairstyleName, hairstylePrice);
+            }
+        }).addOnFailureListener(e -> {
+            Log.e("Error", "an error occurred while fetching Hairstyles collection: " + e.getMessage());
+            Toast.makeText(Ownerdashboard.this, "error fetching Hairstyles data. please try again later.", Toast.LENGTH_SHORT).show();
+        });
+
+        AtomicInteger totalSalesAmount = new AtomicInteger();
+
         ArrayList<String> appt_dates = new ArrayList<String>();
 
         // Get all appts from firestore
@@ -127,14 +156,23 @@ public class Ownerdashboard extends AppCompatActivity {
                             Log.d("Match", "");
                             int count = currentWeek.get(curDay);
                             currentWeek.put(curDay, count + 1);
+
+                            //accumulate the costs by adding the cost of each haircut.
+                            String hairstyle = documentSnapshot.getString("HairStyle");
+                            int hairstylePrice = hairstylePrices.getOrDefault(hairstyle, 0);
+                            Log.d("Price", "Retrieved price for " + hairstyle + ": " + hairstylePrice);
+
+                            totalSalesAmount.addAndGet(hairstylePrice);
                             break;
                         }
                     }
                 }
+
             }
 
             for (Map.Entry<String, Integer> entry : currentWeek.entrySet()) {
                 String key = entry.getKey();
+                totalCustomers = totalCustomers + entry.getValue();
                 String value = String.valueOf(entry.getValue());
                 Date date = new Date();
                 try {
@@ -146,6 +184,7 @@ public class Ownerdashboard extends AppCompatActivity {
 
                     if (Objects.equals(dayOfWeek, "Sunday")) {
                         sundayNum.setText(value);
+
                     }
                     if (Objects.equals(dayOfWeek, "Saturday")) {
                         saturdayNum.setText(value);
@@ -170,10 +209,21 @@ public class Ownerdashboard extends AppCompatActivity {
                 }
             }
 
+            //here the text for the TextView totalSales is set the the accumulated cost in totalSalesAmount
+            totalSales.setText("$" + String.valueOf(totalSalesAmount.get()));
+            Log.d("count",  "$"+String.valueOf(totalSalesAmount.get()));
+
+
         }).addOnFailureListener(e -> {
             // handle failure
         });
 
+
+        manageAppointments = findViewById(R.id.manageAppointments);
+        manageAppointments.setOnClickListener(v -> {
+            Intent intent = new Intent(Ownerdashboard.this, Dashboard.class);
+            startActivity(intent);
+        });
 
     }
 

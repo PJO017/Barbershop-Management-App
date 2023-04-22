@@ -17,6 +17,28 @@
         <activity
             android:name=".Ownerdashboard"
             android:exported="true" />
+
+        <activity
+            android:name=".fragment_edit_customer"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".appointment_item"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Dashboard"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="false">
@@ -28,6 +50,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
             android:name=".Login"
             android:exported="true">
@@ -50,5 +73,6 @@
             android:name=".AddReview"
             android:exported="false" />
     </application>
+
 
 </manifest>

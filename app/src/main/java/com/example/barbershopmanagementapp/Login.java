@@ -44,6 +44,14 @@ public class Login extends AppCompatActivity {
                             Log.d("ROLE", uid);
                             if (Objects.equals(role, "Owner")) {
                                 Intent intent = new Intent(getApplicationContext(), Ownerdashboard.class);
+                                intent.putExtra("userRole", role);
+                                startActivity(intent);
+                                finish();
+                            }
+                            else if (Objects.equals(role, "Barber"))
+                            {
+                                Intent intent = new Intent(getApplicationContext(), Dashboard.class);
+                                intent.putExtra("userRole", role);
                                 startActivity(intent);
                                 finish();
                             }
