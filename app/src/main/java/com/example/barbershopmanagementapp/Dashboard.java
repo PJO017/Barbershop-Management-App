@@ -36,11 +36,15 @@ public class Dashboard extends AppCompatActivity {
     private LinearLayout itemList;
     private List<Customer> customerList;
     private Map<Customer, View> customerViews;
+    private String userRole;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+
+        //get the current user role!!
+        userRole = getIntent().getStringExtra("userRole");
 
         itemList = findViewById(R.id.item_list);
         customerViews = new HashMap<>();
@@ -55,6 +59,11 @@ public class Dashboard extends AppCompatActivity {
                 saveChanges(customerList);
             }
         });
+
+        if ("Barber".equals(userRole)) {
+            saveButton.setVisibility(View.GONE);
+
+        }
     }
 
     private void loadCustomersFromFirebase() {
@@ -100,6 +109,11 @@ public class Dashboard extends AppCompatActivity {
             customerName.setText("Customer: "+customer.getCustomer());
             appointmentTime.setText(customer.getFormattedDate());
             BarberName.setText("Barber: " + customer.getBarber());
+
+            if ("Barber".equals(userRole)) {
+                optionsButton.setVisibility(View.GONE);
+
+            }
 
             optionsButton.setOnClickListener(new View.OnClickListener() {
                 @Override
