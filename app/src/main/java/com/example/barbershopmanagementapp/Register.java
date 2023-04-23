@@ -26,6 +26,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -42,9 +43,9 @@ public class Register extends AppCompatActivity {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         //FirebaseUser currentUser = mAuth.getCurrentUser();
-       // if (currentUser != null) {
-            //Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-       // }
+        // if (currentUser != null) {
+        //Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        // }
     }
 
     void goToLogin() {
@@ -114,11 +115,13 @@ public class Register extends AppCompatActivity {
                                     FirebaseFirestore db = FirebaseFirestore.getInstance();
                                     String userId = mAuth.getCurrentUser().getUid();
                                     DocumentReference userRef = db.collection("Users").document(userId);
+                                    ArrayList<String> fav_barbers = new ArrayList<>();
 
                                     Map<String, Object> user = new HashMap<>();
                                     user.put("Name", name);
                                     user.put("Email", email);
                                     user.put("Role", role);
+                                    user.put("Fav Barbers", fav_barbers);
 
 
                                     userRef.set(user)

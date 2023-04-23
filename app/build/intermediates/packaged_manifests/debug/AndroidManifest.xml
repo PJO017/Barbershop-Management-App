@@ -69,7 +69,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name="com.example.barbershopmanagementapp.Dashboard"
+            android:name="com.example.barbershopmanagementapp.Appointments"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
@@ -101,11 +101,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.barbershopmanagementapp.ReviewAdapter"
-            android:exported="false" />
-        <activity
             android:name="com.example.barbershopmanagementapp.Reviews"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName="com.example.barbershopmanagementapp.BarberActivity" />
         <activity
             android:name="com.example.barbershopmanagementapp.Register"
             android:exported="false" />

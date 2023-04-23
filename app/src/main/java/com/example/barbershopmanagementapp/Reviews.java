@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -48,6 +50,10 @@ public class Reviews extends AppCompatActivity {
         setContentView(R.layout.activity_reviews);
         context = this;
 
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        // toolbar.setNavigationOnClickListener(o -> onBackPressed());
+
         Intent intent = getIntent();
         barber = intent.getStringExtra("barber");
 
@@ -55,7 +61,7 @@ public class Reviews extends AppCompatActivity {
         displayRating = findViewById(R.id.barber_rating);
         add = findViewById(R.id.add);
 
-        displayName.setText(barber);
+        displayName.setText("Barber: " + barber);
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,10 +92,22 @@ public class Reviews extends AppCompatActivity {
                 Log.d("Review", reviewItems.toString());
                 reviewItemsArrayList.add(reviewItems);
             }
-            displayRating.setText(String.valueOf(avgRating / count));
+
+            double rating = avgRating / count;
+            String formattedRating = String.format("%.2f", rating);
+            displayRating.setText("Rating: " + formattedRating);
             reviews = findViewById(R.id.reviews_list_view);
             ReviewAdapter adapter = new ReviewAdapter(context, reviewItemsArrayList);
             reviews.setAdapter(adapter);
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == android.R.id.home) {
+            onBackPressed();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

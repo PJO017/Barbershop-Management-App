@@ -124,6 +124,10 @@
         "source": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-main-52:/mipmap-mdpi/ic_launcher.webp"
     },
     {
+        "merged": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-merged_res-50:/layout_activity_appointments.xml.flat",
+        "source": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-main-52:/layout/activity_appointments.xml"
+    },
+    {
         "merged": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-merged_res-50:/drawable_barber_icon.png.flat",
         "source": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-main-52:/drawable/barber_icon.png"
     },

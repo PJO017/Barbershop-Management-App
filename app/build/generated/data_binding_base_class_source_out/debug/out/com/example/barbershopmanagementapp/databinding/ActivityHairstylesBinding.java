@@ -4,7 +4,6 @@ package com.example.barbershopmanagementapp.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -23,9 +22,6 @@ public final class ActivityHairstylesBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
-  public final Button chooseButton;
-
-  @NonNull
   public final TextView hairstyleActivityTitle;
 
   @NonNull
@@ -34,11 +30,10 @@ public final class ActivityHairstylesBinding implements ViewBinding {
   @NonNull
   public final Toolbar toolbar;
 
-  private ActivityHairstylesBinding(@NonNull LinearLayout rootView, @NonNull Button chooseButton,
+  private ActivityHairstylesBinding(@NonNull LinearLayout rootView,
       @NonNull TextView hairstyleActivityTitle, @NonNull GridView idGVHairstyles,
       @NonNull Toolbar toolbar) {
     this.rootView = rootView;
-    this.chooseButton = chooseButton;
     this.hairstyleActivityTitle = hairstyleActivityTitle;
     this.idGVHairstyles = idGVHairstyles;
     this.toolbar = toolbar;
@@ -71,12 +66,6 @@ public final class ActivityHairstylesBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.chooseButton;
-      Button chooseButton = ViewBindings.findChildViewById(rootView, id);
-      if (chooseButton == null) {
-        break missingId;
-      }
-
       id = R.id.hairstyleActivityTitle;
       TextView hairstyleActivityTitle = ViewBindings.findChildViewById(rootView, id);
       if (hairstyleActivityTitle == null) {
@@ -95,8 +84,8 @@ public final class ActivityHairstylesBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityHairstylesBinding((LinearLayout) rootView, chooseButton,
-          hairstyleActivityTitle, idGVHairstyles, toolbar);
+      return new ActivityHairstylesBinding((LinearLayout) rootView, hairstyleActivityTitle,
+          idGVHairstyles, toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

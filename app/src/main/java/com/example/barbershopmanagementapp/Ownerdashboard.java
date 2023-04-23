@@ -29,7 +29,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Ownerdashboard extends AppCompatActivity {
 
-    TextView textView, textView2, textView3, textView4, textView6, textView7, textView8, textView16, totalSales;
+    TextView textView, textView2, textView3, textView4, textView6, textView7, dailyCustomers, textView16, totalSales;
     TextView sundayNum, mondayNum, tuesdayNum, wednesdayNum, thursdayNum, fridayNum, saturdayNum;
     Button manageAppointments;
 
@@ -44,14 +44,15 @@ public class Ownerdashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ownerdashboard);
 
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setNavigationOnClickListener(v -> onBackPressed());
 
-        textView = findViewById(R.id.textView);
         textView2 = findViewById(R.id.textView2);
-        textView3 = findViewById(R.id.textView3);
         textView4 = findViewById(R.id.textView4);
         textView6 = findViewById(R.id.textView6);
         textView7 = findViewById(R.id.textView7);
-        textView8 = findViewById(R.id.textView8);
+        dailyCustomers = findViewById(R.id.dailyCustomers);
         textView16 = findViewById(R.id.textView16);
 
         sundayNum = findViewById(R.id.sundayNum);
@@ -69,7 +70,7 @@ public class Ownerdashboard extends AppCompatActivity {
 
         //initialize total number of daily customers
         int numCustomers = 0;
-        textView8.setText(Integer.toString(numCustomers));
+        dailyCustomers.setText(Integer.toString(numCustomers));
 
         //initialize number of customers each day
         int sunday = 0;
@@ -177,6 +178,7 @@ public class Ownerdashboard extends AppCompatActivity {
             for (Map.Entry<String, Integer> entry : currentWeek.entrySet()) {
                 String key = entry.getKey();
                 totalCustomers = totalCustomers + entry.getValue();
+                Log.d("TotalCustomer", String.valueOf(totalCustomers));
                 String value = String.valueOf(entry.getValue());
                 Date date = new Date();
                 try {
@@ -215,6 +217,7 @@ public class Ownerdashboard extends AppCompatActivity {
 
             //here the text for the TextView totalSales is set the the accumulated cost in totalSalesAmount
             totalSales.setText("$" + totalSalesAmount.get());
+            dailyCustomers.setText(String.valueOf(totalCustomers));
             Log.d("count", "$" + String.valueOf(totalSalesAmount.get()));
 
 
@@ -225,7 +228,7 @@ public class Ownerdashboard extends AppCompatActivity {
 
         manageAppointments = findViewById(R.id.manageAppointments);
         manageAppointments.setOnClickListener(v -> {
-            Intent intent = new Intent(Ownerdashboard.this, Dashboard.class);
+            Intent intent = new Intent(Ownerdashboard.this, Appointments.class);
             intent.putExtra("userRole", userRole);
             startActivity(intent);
         });

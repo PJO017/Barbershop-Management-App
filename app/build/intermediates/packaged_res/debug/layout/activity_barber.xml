@@ -36,12 +36,4 @@
             android:orientation="vertical" />
 
     </ScrollView>
-
-    <Button
-        android:id="@+id/chooseButton"
-        android:layout_width="138dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/scrollView"
-        android:layout_centerHorizontal="true"
-        tools:text="Choose" />
 </RelativeLayout>

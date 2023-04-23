@@ -6,55 +6,59 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    android:padding="15sp"
     tools:context=".Reviews">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_gravity="start"
+        android:layout_marginBottom="20dp"
+        android:background="?attr/colorPrimary"
+        android:gravity="center_horizontal"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:title="Barbershop Management App" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardBackgroundColor="#E4E4E4"
         android:elevation="4sp"
+        android:layout_marginHorizontal="10dp"
         app:cardCornerRadius="15sp"
         android:layout_marginBottom="15sp">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10sp"
-        android:layout_marginTop="15sp">
-
-        <ImageView
-            android:layout_width="100sp"
-            android:layout_height="100sp"
-            android:id="@+id/barberImg"
-            android:src="@drawable/barber_icon"
-            android:contentDescription="@string/barber_profile_picture" />
-
-        <TextView
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/barberImg"
-            android:paddingTop="20sp"
-            android:layout_marginStart="15sp"
-            android:text="@string/name"
-            android:id="@+id/barber_name" />
+            android:padding="10sp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/barberImg"
-            android:paddingTop="20sp"
-            android:layout_marginStart="15sp"
-            android:layout_below="@+id/barber_name"
-            android:text="@string/rating"
-            android:id="@+id/barber_rating" />
-    </RelativeLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:layout_marginStart="15sp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/name"
+                android:id="@+id/barber_name" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15sp"
+                android:layout_below="@+id/barber_name"
+                android:text="@string/rating"
+                android:textSize="25sp"
+                android:id="@+id/barber_rating" />
+        </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
 
     <ListView
         android:id="@+id/reviews_list_view"
         android:layout_width="match_parent"
+        android:layout_marginHorizontal="10dp"
         android:layout_height="450dp" />
 
     <Button

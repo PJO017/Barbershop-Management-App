@@ -103,9 +103,6 @@ public class HairstyleGVAdapter extends ArrayAdapter<HairstyleModel> {
             listItemView.setBackgroundColor(ContextCompat.getColor(parent.getContext(), R.color.hairstyle_card));
         }
 
-        listItemView.setOnClickListener(v -> {
-            setSelectedPosition(position);
-        });
         return listItemView;
     }
 }

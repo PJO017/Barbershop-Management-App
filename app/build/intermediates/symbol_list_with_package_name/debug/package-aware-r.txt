@@ -3007,6 +3007,7 @@ id appointmentCalendarView
 id appointmentLabel
 id appointmentTV
 id appointment_time
+id appointmentsTitle
 id arc
 id asConfigured
 id async
@@ -3015,7 +3016,6 @@ id autoComplete
 id autoCompleteToEnd
 id autoCompleteToStart
 id barberCV
-id barberImg
 id barberLabel
 id barberRadioBtn
 id barberTV
@@ -3062,7 +3062,6 @@ id chain2
 id chains
 id checkbox
 id checked
-id chooseButton
 id chronometer
 id circle_center
 id clear_text
@@ -3090,7 +3089,9 @@ id customPanel
 id customerRadioBtn
 id customer_name
 id cut
+id dailyCustomers
 id dark
+id dashboardTitle
 id dateAndCVVET
 id dateAndCVVLabels
 id dateLabel
@@ -3474,7 +3475,6 @@ id textView3
 id textView4
 id textView6
 id textView7
-id textView8
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -3510,7 +3510,6 @@ id unlabeled
 id up
 id useLogo
 id vertical_only
-id view
 id view_offset_helper
 id view_transition
 id view_tree_lifecycle_owner
@@ -3640,9 +3639,9 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_add_review
 layout activity_appointment_item
+layout activity_appointments
 layout activity_barber
 layout activity_book_appointment
-layout activity_dashboard
 layout activity_hairstyles
 layout activity_login
 layout activity_main

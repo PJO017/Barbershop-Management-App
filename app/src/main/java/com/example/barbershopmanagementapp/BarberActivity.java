@@ -2,6 +2,7 @@ package com.example.barbershopmanagementapp;
 
 import static android.content.ContentValues.TAG;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -15,14 +16,18 @@ import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.barbershopmanagementapp.Hairstyles.HairstyleActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 
 import java.util.ArrayList;
@@ -32,7 +37,28 @@ public class BarberActivity extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     Boolean showFavorites = false;
     LinearLayout layout;
-    Button chooseButton;
+    Context context = this;
+
+    public void setRating(TextView ratingView, String barber) {
+        ArrayList<ReviewItems> reviewItemsArrayList = new ArrayList<>();
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        CollectionReference reviewsRef = db.collection("Reviews");
+
+        Query query = reviewsRef.whereEqualTo("Barber", barber);
+
+        query.get().addOnSuccessListener(queryDocumentSnapshots -> {
+            Double avgRating = 0.0;
+            int count = 0;
+            for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
+                avgRating += document.getDouble("Rating");
+                count++;
+            }
+            double rating = avgRating / count;
+            String formattedRating = String.format("%.2f", rating);
+            ratingView.setText("Rating: " + formattedRating);
+        });
+    }
 
     public void createViews(ArrayList<String> favs) {
         db.collection("Barbers").get()
@@ -89,16 +115,6 @@ public class BarberActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_barber);
         setBarberList();
-
-        chooseButton = findViewById(R.id.chooseButton);
-        chooseButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
-
     } //end onCreate
 
     private void createBarbers(String name, String rating, String id, boolean fav) {
@@ -112,20 +128,20 @@ public class BarberActivity extends AppCompatActivity {
         Button reviewBt = view.findViewById(R.id.reviewBt);
 
         nameView.setText(name);
-        ratingView.setText("Rating: " + rating);
+        setRating(ratingView, name);
 
         setLikeBtn(name, likeBtn, fav);
 
         //launches review activity on click
         reviewBt.setOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext(), Reviews.class);
+            Intent intent = new Intent(context, Reviews.class);
             intent.putExtra("barber", name);
             startActivity(intent);
             finish();
         });
 
         view.setOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext(), HairstyleActivity.class);
+            Intent intent = new Intent(context, HairstyleActivity.class);
             intent.putExtra("barber", name);
             startActivity(intent);
             finish();

@@ -48,7 +48,7 @@ public class Login extends AppCompatActivity {
                                 startActivity(intent);
                                 finish();
                             } else if (Objects.equals(role, "Barber")) {
-                                Intent intent = new Intent(getApplicationContext(), Dashboard.class);
+                                Intent intent = new Intent(getApplicationContext(), Appointments.class);
                                 intent.putExtra("userRole", role);
                                 startActivity(intent);
                                 finish();
@@ -59,8 +59,6 @@ public class Login extends AppCompatActivity {
                                 finish();
                             }
                         }
-                    })
-                    .addOnFailureListener(e -> {
                     });
         }
     }

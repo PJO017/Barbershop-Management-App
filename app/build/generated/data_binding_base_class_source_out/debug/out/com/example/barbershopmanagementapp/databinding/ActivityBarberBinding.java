@@ -4,7 +4,6 @@ package com.example.barbershopmanagementapp.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -27,9 +26,6 @@ public final class ActivityBarberBinding implements ViewBinding {
   public final ImageButton bookmark;
 
   @NonNull
-  public final Button chooseButton;
-
-  @NonNull
   public final LinearLayout layout;
 
   @NonNull
@@ -39,11 +35,9 @@ public final class ActivityBarberBinding implements ViewBinding {
   public final TextView textView;
 
   private ActivityBarberBinding(@NonNull RelativeLayout rootView, @NonNull ImageButton bookmark,
-      @NonNull Button chooseButton, @NonNull LinearLayout layout, @NonNull ScrollView scrollView,
-      @NonNull TextView textView) {
+      @NonNull LinearLayout layout, @NonNull ScrollView scrollView, @NonNull TextView textView) {
     this.rootView = rootView;
     this.bookmark = bookmark;
-    this.chooseButton = chooseButton;
     this.layout = layout;
     this.scrollView = scrollView;
     this.textView = textView;
@@ -82,12 +76,6 @@ public final class ActivityBarberBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.chooseButton;
-      Button chooseButton = ViewBindings.findChildViewById(rootView, id);
-      if (chooseButton == null) {
-        break missingId;
-      }
-
       id = R.id.layout;
       LinearLayout layout = ViewBindings.findChildViewById(rootView, id);
       if (layout == null) {
@@ -106,8 +94,8 @@ public final class ActivityBarberBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityBarberBinding((RelativeLayout) rootView, bookmark, chooseButton, layout,
-          scrollView, textView);
+      return new ActivityBarberBinding((RelativeLayout) rootView, bookmark, layout, scrollView,
+          textView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

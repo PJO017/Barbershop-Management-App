@@ -5,12 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.barbershopmanagementapp.R;
@@ -26,9 +26,6 @@ public final class ActivityReviewsBinding implements ViewBinding {
   public final Button add;
 
   @NonNull
-  public final ImageView barberImg;
-
-  @NonNull
   public final TextView barberName;
 
   @NonNull
@@ -37,15 +34,18 @@ public final class ActivityReviewsBinding implements ViewBinding {
   @NonNull
   public final ListView reviewsListView;
 
+  @NonNull
+  public final Toolbar toolbar;
+
   private ActivityReviewsBinding(@NonNull LinearLayout rootView, @NonNull Button add,
-      @NonNull ImageView barberImg, @NonNull TextView barberName, @NonNull TextView barberRating,
-      @NonNull ListView reviewsListView) {
+      @NonNull TextView barberName, @NonNull TextView barberRating,
+      @NonNull ListView reviewsListView, @NonNull Toolbar toolbar) {
     this.rootView = rootView;
     this.add = add;
-    this.barberImg = barberImg;
     this.barberName = barberName;
     this.barberRating = barberRating;
     this.reviewsListView = reviewsListView;
+    this.toolbar = toolbar;
   }
 
   @Override
@@ -81,12 +81,6 @@ public final class ActivityReviewsBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.barberImg;
-      ImageView barberImg = ViewBindings.findChildViewById(rootView, id);
-      if (barberImg == null) {
-        break missingId;
-      }
-
       id = R.id.barber_name;
       TextView barberName = ViewBindings.findChildViewById(rootView, id);
       if (barberName == null) {
@@ -105,8 +99,14 @@ public final class ActivityReviewsBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityReviewsBinding((LinearLayout) rootView, add, barberImg, barberName,
-          barberRating, reviewsListView);
+      id = R.id.toolbar;
+      Toolbar toolbar = ViewBindings.findChildViewById(rootView, id);
+      if (toolbar == null) {
+        break missingId;
+      }
+
+      return new ActivityReviewsBinding((LinearLayout) rootView, add, barberName, barberRating,
+          reviewsListView, toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

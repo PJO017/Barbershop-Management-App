@@ -101,7 +101,7 @@
     <CalendarView
         android:id="@+id/appointmentCalendarView"
         android:layout_width="302dp"
-        android:layout_height="294dp"
+        android:layout_height="350dp"
         android:layout_marginBottom="8dp" />
 
     <Button

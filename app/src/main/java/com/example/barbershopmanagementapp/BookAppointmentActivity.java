@@ -59,7 +59,6 @@ public class BookAppointmentActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         toolbar.setNavigationOnClickListener(v -> onBackPressed());
 
         Context context = this;

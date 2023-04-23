@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -23,10 +24,7 @@ import java.util.Comparator;
 
 public class HairstyleActivity extends AppCompatActivity {
     GridView hairstyleGV;
-    ImageView image;
-    Button chooseButton;
     String barber;
-    HairstyleModel choice;
     private Context context;
 
     public void openBookAppointment(String barber, String hairstyle, Long price) {
@@ -73,10 +71,9 @@ public class HairstyleActivity extends AppCompatActivity {
                             new HairstyleGVAdapter(context, hairstyleModelArrayList);
                     hairstyleGV.setAdapter(adapter);
 
-                    chooseButton = findViewById(R.id.chooseButton);
-                    chooseButton.setOnClickListener(v -> {
-                        choice = adapter.getSelectedHairstyle();
-                        openBookAppointment(barber, choice.getName(), choice.getPrice());
+                    hairstyleGV.setOnItemClickListener((parent, view, position, id) -> {
+                        HairstyleModel selectedHairstyle = hairstyleModelArrayList.get(position);
+                        openBookAppointment(barber, selectedHairstyle.getName(), selectedHairstyle.getPrice());
                     });
                 });
 
