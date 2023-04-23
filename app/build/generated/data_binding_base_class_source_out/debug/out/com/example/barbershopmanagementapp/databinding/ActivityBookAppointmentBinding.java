@@ -31,9 +31,6 @@ public final class ActivityBookAppointmentBinding implements ViewBinding {
   public final CardView barberCV;
 
   @NonNull
-  public final ImageView barberIV;
-
-  @NonNull
   public final TextView barberTV;
 
   @NonNull
@@ -62,14 +59,13 @@ public final class ActivityBookAppointmentBinding implements ViewBinding {
 
   private ActivityBookAppointmentBinding(@NonNull LinearLayout rootView,
       @NonNull CalendarView appointmentCalendarView, @NonNull CardView barberCV,
-      @NonNull ImageView barberIV, @NonNull TextView barberTV,
-      @NonNull TextView bookAppointmentTitle, @NonNull Button bookButton,
-      @NonNull CardView hairstyleCV, @NonNull ImageView hairstyleIV, @NonNull TextView hairstyleTV,
-      @NonNull TextView textView, @NonNull Button timePickerButton, @NonNull Toolbar toolbar) {
+      @NonNull TextView barberTV, @NonNull TextView bookAppointmentTitle,
+      @NonNull Button bookButton, @NonNull CardView hairstyleCV, @NonNull ImageView hairstyleIV,
+      @NonNull TextView hairstyleTV, @NonNull TextView textView, @NonNull Button timePickerButton,
+      @NonNull Toolbar toolbar) {
     this.rootView = rootView;
     this.appointmentCalendarView = appointmentCalendarView;
     this.barberCV = barberCV;
-    this.barberIV = barberIV;
     this.barberTV = barberTV;
     this.bookAppointmentTitle = bookAppointmentTitle;
     this.bookButton = bookButton;
@@ -117,12 +113,6 @@ public final class ActivityBookAppointmentBinding implements ViewBinding {
       id = R.id.barberCV;
       CardView barberCV = ViewBindings.findChildViewById(rootView, id);
       if (barberCV == null) {
-        break missingId;
-      }
-
-      id = R.id.barberIV;
-      ImageView barberIV = ViewBindings.findChildViewById(rootView, id);
-      if (barberIV == null) {
         break missingId;
       }
 
@@ -181,7 +171,7 @@ public final class ActivityBookAppointmentBinding implements ViewBinding {
       }
 
       return new ActivityBookAppointmentBinding((LinearLayout) rootView, appointmentCalendarView,
-          barberCV, barberIV, barberTV, bookAppointmentTitle, bookButton, hairstyleCV, hairstyleIV,
+          barberCV, barberTV, bookAppointmentTitle, bookButton, hairstyleCV, hairstyleIV,
           hairstyleTV, textView, timePickerButton, toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);

@@ -35,7 +35,6 @@ id appointmentLabel
 id appointmentTV
 id appointment_time
 id barberCV
-id barberIV
 id barberImg
 id barberLabel
 id barberRadioBtn

@@ -4,23 +4,23 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.sql.Timestamp;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class PaymentActivity extends AppCompatActivity {
     TextView appointment, price, barber, hairstyle;
@@ -67,29 +67,47 @@ public class PaymentActivity extends AppCompatActivity {
         hairstyle = findViewById(R.id.hairstyleTV);
         hairstyle.setText(data.getStringExtra("hairstyle"));
 
-        EditText name = (EditText) findViewById(R.id.name);
 
         Button payButton = findViewById(R.id.payButton);
         payButton.setOnClickListener(v -> {
-
             FirebaseFirestore db = FirebaseFirestore.getInstance();
-            Map<String, Object> appt = new HashMap<>();
-
-            appt.put("Customer", name.getText().toString());
-            appt.put("Barber", barber.getText());
-            appt.put("HairStyle", hairstyle.getText());
-
-            String dateTime = data.getStringExtra("year") + "-" + data.getStringExtra("month") + "-" + data.getStringExtra("day") + " " + convertTime(data.getIntExtra("hour", 0), data.getIntExtra("minute", 0)) + ":" + "00";
-            Log.d("time", dateTime);
-            appt.put("Date", Timestamp.valueOf(dateTime));
+            FirebaseAuth mAuth = FirebaseAuth.getInstance();
+            FirebaseUser currentUser = mAuth.getCurrentUser();
 
 
-            db.collection("Appointments").
-                    add(appt)
-                    .addOnSuccessListener((OnSuccessListener) o -> {
-                    })
-                    .addOnFailureListener(e -> {
-                    });
+            if (currentUser != null) {
+                String uid = currentUser.getUid();
+
+                DocumentReference userRef = db.collection("Users").document(uid);
+
+                userRef.get()
+                        .addOnSuccessListener(documentSnapshots -> {
+                            if (documentSnapshots.exists()) {
+                                String name = documentSnapshots.getString("Name");
+
+                                Map<String, Object> appt = new HashMap<>();
+
+                                appt.put("Customer", name);
+                                appt.put("Barber", barber.getText());
+                                appt.put("HairStyle", hairstyle.getText());
+
+                                String dateTime = data.getStringExtra("year") + "-" + data.getStringExtra("month") + "-" + data.getStringExtra("day") + " " + convertTime(data.getIntExtra("hour", 0), data.getIntExtra("minute", 0)) + ":" + "00";
+                                Log.d("time", dateTime);
+                                appt.put("Date", Timestamp.valueOf(dateTime));
+
+
+                                db.collection("Appointments").
+                                        add(appt)
+                                        .addOnSuccessListener((OnSuccessListener) o -> {
+                                            Toast.makeText(getApplicationContext(), "Appointment Successfully Created", Toast.LENGTH_SHORT).show();
+                                        })
+                                        .addOnFailureListener(e -> {
+                                        });
+                            }
+                        });
+
+            }
         });
+
     }
 }
