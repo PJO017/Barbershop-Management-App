@@ -2764,6 +2764,7 @@ drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
 drawable favorite
+drawable favorite_on
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable heart_button
@@ -2947,7 +2948,6 @@ id auto
 id autoComplete
 id autoCompleteToEnd
 id autoCompleteToStart
-id barber
 id barrier
 id baseline
 id beginOnFirstDraw
@@ -2981,6 +2981,7 @@ id chain2
 id chains
 id checkbox
 id checked
+id chooseButton
 id chronometer
 id circle_center
 id clear_text
@@ -3011,7 +3012,6 @@ id decelerate
 id decelerateAndComplete
 id decor_content_parent
 id default_activity_button
-id delFave
 id deltaRelative
 id dependency_ordering
 id design_bottom_sheet
@@ -3053,8 +3053,6 @@ id expand_activities_button
 id expanded_menu
 id fade
 id faveBt
-id faveName
-id favorites
 id fill
 id fill_horizontal
 id fill_vertical
@@ -3485,8 +3483,6 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_barber
-layout activity_favorite
-layout activity_main
 layout barber_view
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
@@ -3506,7 +3502,6 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
-layout favorite_view
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title

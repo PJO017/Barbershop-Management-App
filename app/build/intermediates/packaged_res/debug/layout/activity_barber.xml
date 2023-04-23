@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -8,6 +9,7 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textAlignment="center"
         android:text="Select A Barber"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
@@ -20,16 +22,26 @@
         android:contentDescription="show all favorites button" />
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:id="@+id/scrollView"
-        android:contentDescription="list of barbers"
-        android:layout_below="@id/textView">
+        android:layout_width="match_parent"
+        android:layout_height="599dp"
+        android:layout_below="@id/textView"
+        android:layout_marginTop="19dp"
+        android:contentDescription="list of barbers">
+
         <LinearLayout
+            android:id="@+id/layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/layout"
-            android:orientation="vertical"/>
+            android:orientation="vertical" />
 
     </ScrollView>
+
+    <Button
+        android:id="@+id/chooseButton"
+        android:layout_width="138dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/scrollView"
+        android:layout_centerHorizontal="true"
+        tools:text="Choose" />
 </RelativeLayout>

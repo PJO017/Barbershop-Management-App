@@ -2,7 +2,6 @@ package com.example.barbershopmanagementapp;
 
 import static android.content.ContentValues.TAG;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,203 +11,133 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
 
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class BarberActivity extends AppCompatActivity {
-
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    String email;
-    FirebaseAuth mAuth;
-
+    String currentUID = "16ggfOzNqiV01g6Tx86RvJrbNKT2";
+    Boolean showFavorites = false;
     LinearLayout layout;
+
+    public void createViews(ArrayList<String> favs) {
+        db.collection("Barbers").get()
+                .addOnSuccessListener(queryDocumentSnapshots -> {
+                    Log.d(TAG, "onSuccess: Data retrieved");
+
+                    List<DocumentSnapshot> snapshotList = queryDocumentSnapshots.getDocuments();
+                    for (DocumentSnapshot snapshot : snapshotList) {
+                        Log.d(TAG, "onSuccess: " + snapshot.getString("Name"));
+                        Log.d(TAG, "onSuccess: " + snapshot.getDouble("Rating"));
+
+                        if (showFavorites && favs.contains(snapshot.getString("Name"))) {
+                            createBarbers(snapshot.getString("Name"),
+                                    String.valueOf(snapshot.getDouble("Rating")), snapshot.getId(), favs.contains(snapshot.getString("Name")));
+                        } else if (!showFavorites) {
+                            createBarbers(snapshot.getString("Name"),
+                                    String.valueOf(snapshot.getDouble("Rating")), snapshot.getId(), favs.contains(snapshot.getString("Name")));
+                        }
+                    }
+                });
+    }
+
+    public void setBarberList() {
+        layout = findViewById(R.id.layout);
+
+        ImageButton favoritesToggle = findViewById(R.id.bookmark);
+        //launches favorite activity on click
+        favoritesToggle.setOnClickListener(v -> {
+            Log.d("toggleFav", showFavorites.toString());
+            showFavorites = !showFavorites;
+            if (showFavorites) {
+                favoritesToggle.setBackgroundResource(R.drawable.favorite_on);
+            } else {
+                favoritesToggle.setBackgroundResource(R.drawable.favorite);
+            }
+
+            layout.removeAllViews();
+            setBarberList();
+        });
+
+        DocumentReference userRef = db.collection("Users").document(currentUID);
+        userRef.get()
+                .addOnSuccessListener(documentSnapshots -> {
+                    if (documentSnapshots.exists()) {
+                        ArrayList<String> favorites = (ArrayList<String>) documentSnapshots.get("Fav Barbers");
+                        createViews(favorites);
+                    }
+                });
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_barber);
-
-        layout = findViewById(R.id.layout);
-
-        db.collection("Barbers").get()
-                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                    @Override
-                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                        Log.d(TAG, "onSuccess: Data retrieved");
-
-                        List<DocumentSnapshot> snapshotList = queryDocumentSnapshots.getDocuments();
-                        for (DocumentSnapshot snapshot: snapshotList) {
-                            Log.d(TAG, "onSuccess: " + snapshot.getString("Name"));
-                            Log.d(TAG, "onSuccess: " + snapshot.getDouble("Rating"));
-
-                            createBarbers(snapshot.getString("Name"),
-                                    String.valueOf(snapshot.getDouble("Rating")), snapshot.getId());
-
-
-                        }
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.e(TAG, "onFailure: ", e);
-                    }
-                });
-
-        ImageButton button = findViewById(R.id.bookmark);
-        //launches favorite activity on click
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), FavoriteActivity.class);
-                startActivity(intent);
-            }
-        });
+        setBarberList();
     } //end onCreate
 
-    private void createBarbers(String name, String rating, String id) {
+    private void createBarbers(String name, String rating, String id, boolean fav) {
         Log.d(TAG, "VIEW CREATED" + name);
         View view = getLayoutInflater().inflate(R.layout.barber_view, null);
-
-//        email  = mAuth.getCurrentUser().getEmail();
-        email = "user@email.com"; //to be deleted for testing purposes
 
         TextView nameView = view.findViewById(R.id.nameView);
         TextView ratingView = view.findViewById(R.id.ratingView);
 
-        ToggleButton likeBt = view.findViewById(R.id.faveBt);
+        ToggleButton likeBtn = view.findViewById(R.id.faveBt);
         Button reviewBt = view.findViewById(R.id.reviewBt);
 
         nameView.setText(name);
         ratingView.setText("Rating: " + rating);
 
-        checkIfLiked(name, likeBt);
-
-        //favorites user's choice of barber
-        likeBt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(likeBt.isChecked()){
-                    likeBt.setBackgroundResource(R.drawable.on);
-                    like(name, email);
-                }else{
-                    likeBt.setBackgroundResource(R.drawable.off);
-                    removeFave(id);
-                }
-
-            }
-        });
+        setLikeBtn(name, likeBtn, fav);
 
         //launches review activity on click
-        reviewBt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                launchReview();
-            }
-        });
-
-        //launches booking activity on click
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                view.setBackgroundColor(getResources().getColor(R.color.newBack));
-                launchBooking();
-            }
+        reviewBt.setOnClickListener(v -> {
         });
 
         layout.addView(view);
-    } //end createBarbers
-
-    //adds favorite
-    private void like(String barbName, String email) {
-        Map<String, String> fave = new HashMap<>();
-        fave.put("Barber", barbName);
-        fave.put("User", email);
-
-        db.collection("Favorites").add(fave)
-            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                @Override
-                public void onSuccess(DocumentReference documentReference) {
-                    Log.d(TAG, "DocumentSnapshot written with ID: " + documentReference.getId());
-                }
-            })
-            .addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Log.w(TAG, "Error adding document", e);
-                }
-            });
-
-    } //end like()
-
-    //deletes favorite
-    public void removeFave(String id){
-        db.collection("Favorites").document(id).delete()
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        Log.d(TAG, "onSuccess: doc: " + id + " deleted");
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.e(TAG, "onFailure: ", e);
-                    }
-                });
-    } //end removeFave()
-
-    //checks if user has already favorited a barber
-    public void checkIfLiked(String barbName, ToggleButton button){
-        db.collection("Favorites").whereEqualTo("User", email)
-                .get()
-                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                    @Override
-                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                        Log.d(TAG, "onSuccess: checkIfFavorited");
-
-                        List<DocumentSnapshot> snapshotList = queryDocumentSnapshots.getDocuments();
-                        for (DocumentSnapshot snapshot: snapshotList) {
-
-                            if (barbName.equals(snapshot.getString("Barber"))){
-                                Log.d(TAG, "barber " + barbName + " = " + snapshot.getString("Barber"));
-                                button.setBackgroundResource(R.drawable.on);
-                            }else{
-                                button.setBackgroundResource(R.drawable.off);
-                            }
-                        }
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.e(TAG, "onFailure: ", e);
-                    }
-                });
-    }// end checkIfFavorited
-
-    //launches review
-    public void launchReview(){
-        Log.d(TAG, "review clicked");
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
     }
 
+    //adds favorite
+    private void like(String barbName) {
+        DocumentReference userRef = db.collection("Users").document(currentUID);
+        userRef.update("Fav Barbers", FieldValue.arrayUnion(barbName)).addOnSuccessListener(unused -> Log.d("Favorite", "Favorite added: " + barbName));
+    }
 
-    //launches booking
-    public void launchBooking(){
-        Log.d(TAG, "booking clicked");
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+    //deletes favorite
+    public void removeFave(String barbName) {
+        DocumentReference userRef = db.collection("Users").document(currentUID);
+        userRef.update("Fav Barbers", FieldValue.arrayRemove(barbName)).addOnSuccessListener(unused -> Log.d("Favorite", "Favorite removed: " + barbName));
+
+    }
+
+    //checks if user has already favorited a barber
+    public void setLikeBtn(String name, ToggleButton button, boolean fav) {
+        if (fav) {
+            button.setBackgroundResource(R.drawable.on);
+            button.setChecked(true);
+        } else {
+            button.setBackgroundResource(R.drawable.off);
+            button.setChecked(false);
+        }
+
+        //favorites user's choice of barber
+        button.setOnClickListener(v -> {
+            if (!button.isChecked()) {
+                button.setBackgroundResource(R.drawable.on);
+                like(name);
+            } else {
+                button.setBackgroundResource(R.drawable.off);
+                removeFave(name);
+            }
+        });
     }
 }

@@ -43,16 +43,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.example.barbershopmanagementapp.MainActivity"
-            android:exported="true" >
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name="com.example.barbershopmanagementapp.FavoriteActivity"
-            android:exported="false" />
 
         <service
             android:name="com.google.firebase.components.ComponentDiscoveryService"
