@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Barbershop Management App</string>
+    <string name="barber_name">Barber Name</string>
+    <string name="barber_rate">Barber Rate</string>
     <string name="textview">TextView</string>
     <string name="dashboard">Dashboard</string>
     <string name="title_activity_ownerdashboard">Ownerdashboard</string>
