@@ -12,13 +12,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.BarbershopManagementApp"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar
         tools:targetApi="31">
         <activity
             android:name=".Ownerdashboard"
             android:exported="true" />
 
-        <activity
+        <activit
             android:name=".fragment_edit_customer"
             android:exported="false">
             <meta-data
@@ -51,11 +51,26 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
+            android:name=".BookAppointmentActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOK_APPOINTMENT"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".PaymentActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOK_APPOINTMENT"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
             android:name=".ReviewAdapter"
             android:exported="false" />
         <activity
@@ -68,6 +83,4 @@
             android:name=".AddReview"
             android:exported="false" />
     </application>
-
-
 </manifest>

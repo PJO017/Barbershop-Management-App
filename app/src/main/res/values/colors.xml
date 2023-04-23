@@ -7,6 +7,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="selected_hairstyle_card">#6CFFC107</color>
+    <color name="hairstyle_card">#848685A6</color>
     <color name="newBack">#FDFD96</color>
     <color name="Grey">#DDDDDD</color>
 </resources>

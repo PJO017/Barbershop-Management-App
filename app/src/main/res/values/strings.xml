@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">Barbershop Management App</string>
+    <string name="price_text">Price:</string>
+    <string name="hairstyle_pic">hairstyle_pic</string>
+    <string name="book_appointment_title">Book Appointment</string>
+    <string name="paymentTitle">Payment</string>
+    <string name="price">Price: $%1$d</string>
+    <string name="hairstyleActivityTitle">Choose a Hairstyle</string>
+    <string name="chooseButton">Choose</string>
     <string name="barber_name">Barber Name</string>
     <string name="barber_rate">Barber Rate</string>
     <string name="textview">TextView</string>
