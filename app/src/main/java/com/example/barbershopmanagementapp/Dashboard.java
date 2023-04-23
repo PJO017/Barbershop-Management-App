@@ -24,6 +24,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import com.google.firebase.Timestamp;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -60,7 +61,7 @@ public class Dashboard extends AppCompatActivity {
             }
         });
 
-        if ("Barber".equals(userRole)) {
+        if ("Owner".equals(userRole)) {
             saveButton.setVisibility(View.GONE);
 
         }
@@ -106,11 +107,11 @@ public class Dashboard extends AppCompatActivity {
             TextView BarberName = itemView.findViewById(R.id.barber_name_textview);
             ImageButton optionsButton = itemView.findViewById(R.id.delete_button);
 
-            customerName.setText("Customer: "+customer.getCustomer());
+            customerName.setText("Customer: " + customer.getCustomer());
             appointmentTime.setText(customer.getFormattedDate());
             BarberName.setText("Barber: " + customer.getBarber());
 
-            if ("Barber".equals(userRole)) {
+            if ("Owner".equals(userRole)) {
                 optionsButton.setVisibility(View.GONE);
 
             }
