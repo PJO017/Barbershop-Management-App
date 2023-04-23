@@ -2,8 +2,11 @@ package com.example.barbershopmanagementapp;
 
 import static android.content.ContentValues.TAG;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -13,6 +16,9 @@ import android.widget.ToggleButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.barbershopmanagementapp.Hairstyles.HairstyleActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
@@ -24,20 +30,15 @@ import java.util.List;
 
 public class BarberActivity extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    String currentUID = "16ggfOzNqiV01g6Tx86RvJrbNKT2";
     Boolean showFavorites = false;
     LinearLayout layout;
+    Button chooseButton;
 
     public void createViews(ArrayList<String> favs) {
         db.collection("Barbers").get()
                 .addOnSuccessListener(queryDocumentSnapshots -> {
-                    Log.d(TAG, "onSuccess: Data retrieved");
-
                     List<DocumentSnapshot> snapshotList = queryDocumentSnapshots.getDocuments();
                     for (DocumentSnapshot snapshot : snapshotList) {
-                        Log.d(TAG, "onSuccess: " + snapshot.getString("Name"));
-                        Log.d(TAG, "onSuccess: " + snapshot.getDouble("Rating"));
-
                         if (showFavorites && favs.contains(snapshot.getString("Name"))) {
                             createBarbers(snapshot.getString("Name"),
                                     String.valueOf(snapshot.getDouble("Rating")), snapshot.getId(), favs.contains(snapshot.getString("Name")));
@@ -55,7 +56,6 @@ public class BarberActivity extends AppCompatActivity {
         ImageButton favoritesToggle = findViewById(R.id.bookmark);
         //launches favorite activity on click
         favoritesToggle.setOnClickListener(v -> {
-            Log.d("toggleFav", showFavorites.toString());
             showFavorites = !showFavorites;
             if (showFavorites) {
                 favoritesToggle.setBackgroundResource(R.drawable.favorite_on);
@@ -67,14 +67,21 @@ public class BarberActivity extends AppCompatActivity {
             setBarberList();
         });
 
-        DocumentReference userRef = db.collection("Users").document(currentUID);
-        userRef.get()
-                .addOnSuccessListener(documentSnapshots -> {
-                    if (documentSnapshots.exists()) {
-                        ArrayList<String> favorites = (ArrayList<String>) documentSnapshots.get("Fav Barbers");
-                        createViews(favorites);
-                    }
-                });
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
+        if (currentUser != null) {
+            String uid = currentUser.getUid();
+
+            DocumentReference userRef = db.collection("Users").document(uid);
+            userRef.get()
+                    .addOnSuccessListener(documentSnapshots -> {
+                        if (documentSnapshots.exists()) {
+                            ArrayList<String> favorites = (ArrayList<String>) documentSnapshots.get("Fav Barbers");
+                            createViews(favorites);
+                        }
+                    });
+        }
     }
 
     @Override
@@ -82,6 +89,16 @@ public class BarberActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_barber);
         setBarberList();
+
+        chooseButton = findViewById(R.id.chooseButton);
+        chooseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+
     } //end onCreate
 
     private void createBarbers(String name, String rating, String id, boolean fav) {
@@ -101,6 +118,17 @@ public class BarberActivity extends AppCompatActivity {
 
         //launches review activity on click
         reviewBt.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), Reviews.class);
+            intent.putExtra("barber", name);
+            startActivity(intent);
+            finish();
+        });
+
+        view.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), HairstyleActivity.class);
+            intent.putExtra("barber", name);
+            startActivity(intent);
+            finish();
         });
 
         layout.addView(view);
@@ -108,15 +136,26 @@ public class BarberActivity extends AppCompatActivity {
 
     //adds favorite
     private void like(String barbName) {
-        DocumentReference userRef = db.collection("Users").document(currentUID);
-        userRef.update("Fav Barbers", FieldValue.arrayUnion(barbName)).addOnSuccessListener(unused -> Log.d("Favorite", "Favorite added: " + barbName));
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
+        if (currentUser != null) {
+            String uid = currentUser.getUid();
+            DocumentReference userRef = db.collection("Users").document(uid);
+            userRef.update("Fav Barbers", FieldValue.arrayUnion(barbName));
+        }
     }
 
     //deletes favorite
     public void removeFave(String barbName) {
-        DocumentReference userRef = db.collection("Users").document(currentUID);
-        userRef.update("Fav Barbers", FieldValue.arrayRemove(barbName)).addOnSuccessListener(unused -> Log.d("Favorite", "Favorite removed: " + barbName));
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
 
+        if (currentUser != null) {
+            String uid = currentUser.getUid();
+            DocumentReference userRef = db.collection("Users").document(uid);
+            userRef.update("Fav Barbers", FieldValue.arrayRemove(barbName));
+        }
     }
 
     //checks if user has already favorited a barber

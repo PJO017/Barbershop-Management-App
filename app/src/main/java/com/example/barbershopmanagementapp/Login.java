@@ -47,10 +47,13 @@ public class Login extends AppCompatActivity {
                                 intent.putExtra("userRole", role);
                                 startActivity(intent);
                                 finish();
-                            }
-                            else if (Objects.equals(role, "Barber"))
-                            {
+                            } else if (Objects.equals(role, "Barber")) {
                                 Intent intent = new Intent(getApplicationContext(), Dashboard.class);
+                                intent.putExtra("userRole", role);
+                                startActivity(intent);
+                                finish();
+                            } else if (Objects.equals(role, "Customer")) {
+                                Intent intent = new Intent(getApplicationContext(), BarberActivity.class);
                                 intent.putExtra("userRole", role);
                                 startActivity(intent);
                                 finish();
@@ -65,6 +68,7 @@ public class Login extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
+        // mAuth.signOut();
         loggedIn();
     }
 

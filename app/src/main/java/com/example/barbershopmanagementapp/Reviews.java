@@ -36,7 +36,8 @@ import java.util.Map;
 import java.util.Objects;
 
 public class Reviews extends AppCompatActivity {
-    TextView customer, barber, review, rating, displayName, displayRating;
+    TextView displayName, displayRating;
+    String barber;
     Button add;
     ListView reviews;
     private Context context;
@@ -47,17 +48,20 @@ public class Reviews extends AppCompatActivity {
         setContentView(R.layout.activity_reviews);
         context = this;
 
+        Intent intent = getIntent();
+        barber = intent.getStringExtra("barber");
+
         displayName = findViewById(R.id.barber_name);
         displayRating = findViewById(R.id.barber_rating);
         add = findViewById(R.id.add);
 
-        displayName.setText("Barber 2");
+        displayName.setText(barber);
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Reviews.this, AddReview.class);
-                intent.putExtra("Barber", displayName.getText());
+                Intent intent = new Intent(getApplicationContext(), AddReview.class);
+                intent.putExtra("Barber", barber);
                 startActivity(intent);
                 finish();
             }
@@ -68,7 +72,7 @@ public class Reviews extends AppCompatActivity {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         CollectionReference reviewsRef = db.collection("Reviews");
 
-        Query query = reviewsRef.whereEqualTo("Barber", "Barber 2");
+        Query query = reviewsRef.whereEqualTo("Barber", barber);
 
         query.get().addOnSuccessListener(queryDocumentSnapshots -> {
             Double avgRating = 0.0;

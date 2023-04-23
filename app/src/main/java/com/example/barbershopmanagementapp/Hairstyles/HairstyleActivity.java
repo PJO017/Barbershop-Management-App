@@ -25,6 +25,7 @@ public class HairstyleActivity extends AppCompatActivity {
     GridView hairstyleGV;
     ImageView image;
     Button chooseButton;
+    String barber;
     HairstyleModel choice;
     private Context context;
 
@@ -40,6 +41,8 @@ public class HairstyleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hairstyles);
+        Intent intent = getIntent();
+        barber = intent.getStringExtra("barber");
 
         context = this;
 
@@ -73,7 +76,7 @@ public class HairstyleActivity extends AppCompatActivity {
                     chooseButton = findViewById(R.id.chooseButton);
                     chooseButton.setOnClickListener(v -> {
                         choice = adapter.getSelectedHairstyle();
-                        openBookAppointment("Barber 1", choice.getName(), choice.getPrice());
+                        openBookAppointment(barber, choice.getName(), choice.getPrice());
                     });
                 });
 
