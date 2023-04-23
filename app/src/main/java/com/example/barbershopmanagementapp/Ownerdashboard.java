@@ -36,6 +36,7 @@ public class Ownerdashboard extends AppCompatActivity {
     int totalCustomers = 0;
     HashMap<String, Integer> hairstylePrices = new HashMap<>();
 
+    private String userRole;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +61,8 @@ public class Ownerdashboard extends AppCompatActivity {
 
         totalSales = findViewById(R.id.SalesTotal);
 
+        //get the current user role!!
+        userRole = getIntent().getStringExtra("userRole");
 
         //initialize total number of daily customers
         int numCustomers = 0;
@@ -222,6 +225,7 @@ public class Ownerdashboard extends AppCompatActivity {
         manageAppointments = findViewById(R.id.manageAppointments);
         manageAppointments.setOnClickListener(v -> {
             Intent intent = new Intent(Ownerdashboard.this, Dashboard.class);
+            intent.putExtra("userRole", userRole);
             startActivity(intent);
         });
 
