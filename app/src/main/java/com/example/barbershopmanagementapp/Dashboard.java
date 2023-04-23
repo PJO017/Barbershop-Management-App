@@ -62,8 +62,8 @@ public class Dashboard extends AppCompatActivity {
         });
 
         if ("Owner".equals(userRole)) {
+            Log.d("Current User: ", "this user is: " + userRole);
             saveButton.setVisibility(View.GONE);
-
         }
     }
 
