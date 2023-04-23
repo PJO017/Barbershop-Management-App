@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="10sp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#E4E4E4"
+        android:elevation="4sp"
+        app:cardCornerRadius="15sp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20sp">
+
+        <TextView
+            android:layout_width="250sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/ReviewTitle"
+            android:textColor="@color/black"
+            android:text="@string/review" />
+
+        <TextView
+            android:layout_width="200sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/DisplayRating"
+            android:layout_toEndOf="@+id/ReviewTitle"
+            android:textColor="@color/black"
+            android:text="@string/rating" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/DisplayRating"
+            android:id="@+id/DisplayReview"
+            android:textColor="@color/black"
+            android:layout_marginTop="20sp"
+            android:text="@string/test_review" />
+    </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

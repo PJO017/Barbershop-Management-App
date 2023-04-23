@@ -1,0 +1,98 @@
+[
+    {
+        "merged": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-merged_res-37:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-main-39:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-merged_res-37:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-main-39:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-merged_res-37:/drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-main-39:/drawable-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-merged_res-37:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-main-39:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-merged_res-37:/drawable_ic_launcher_background.xml.flat",
+        "source": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-main-39:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-merged_res-37:/xml_data_extraction_rules.xml.flat",
+        "source": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-main-39:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-merged_res-37:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-main-39:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-merged_res-37:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-main-39:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-merged_res-37:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-main-39:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-merged_res-37:/drawable_off.png.flat",
+        "source": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-main-39:/drawable/off.png"
+    },
+    {
+        "merged": "com.example.barbershopmanagementapp-merged_res-37:/layout_activity_barber.xml.flat",
+        "source": "com.example.barbershopmanagementapp-main-39:/layout/activity_barber.xml"
+    },
+    {
+        "merged": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-merged_res-37:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-main-39:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-merged_res-37:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-main-39:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-merged_res-37:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-main-39:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-merged_res-37:/xml_backup_rules.xml.flat",
+        "source": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-main-39:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-merged_res-37:/drawable_favorite.png.flat",
+        "source": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-main-39:/drawable/favorite.png"
+    },
+    {
+        "merged": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-merged_res-37:/drawable_favorite_on.png.flat",
+        "source": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-main-39:/drawable/favorite_on.png"
+    },
+    {
+        "merged": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-merged_res-37:/drawable_on.png.flat",
+        "source": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-main-39:/drawable/on.png"
+    },
+    {
+        "merged": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-merged_res-37:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-main-39:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-merged_res-37:/layout_activity_barber.xml.flat",
+        "source": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-main-39:/layout/activity_barber.xml"
+    },
+    {
+        "merged": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-merged_res-37:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-main-39:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-merged_res-37:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-main-39:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-merged_res-37:/drawable_heart_button.xml.flat",
+        "source": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-main-39:/drawable/heart_button.xml"
+    },
+    {
+        "merged": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-merged_res-37:/layout_barber_view.xml.flat",
+        "source": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-main-39:/layout/barber_view.xml"
+    }
+]

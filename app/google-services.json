@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "716585905873",
+    "project_id": "barbershop-management-app",
+    "storage_bucket": "barbershop-management-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:716585905873:android:e06abdf528b12aeab19ff0",
+        "android_client_info": {
+          "package_name": "com.example.barbershopmanagementapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "716585905873-6bngqlad73vk9dv4gplkurdafck87l07.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.barbershopmanagementapp",
+            "certificate_hash": "07e4ee2e2f3dabac508227a8d2fdc515ee33a0a2"
+          }
+        },
+        {
+          "client_id": "716585905873-aeuv4tqiih09r8jk01pdh8oqi1s38bmo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2WSHOazjuOmq2p63Ku3ApJgm1QDeGVNg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "716585905873-aeuv4tqiih09r8jk01pdh8oqi1s38bmo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
