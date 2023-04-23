@@ -1,6 +1,7 @@
 package com.example.barbershopmanagementapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -42,6 +43,8 @@ public class Ownerdashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ownerdashboard);
+
+
         textView = findViewById(R.id.textView);
         textView2 = findViewById(R.id.textView2);
         textView3 = findViewById(R.id.textView3);
@@ -83,8 +86,6 @@ public class Ownerdashboard extends AppCompatActivity {
         fridayNum.setText(Integer.toString(friday));
         int saturday = 0;
         saturdayNum.setText(Integer.toString(saturday));
-
-
 
 
         Map<String, Integer> currentWeek = new HashMap<String, Integer>();
@@ -213,8 +214,8 @@ public class Ownerdashboard extends AppCompatActivity {
             }
 
             //here the text for the TextView totalSales is set the the accumulated cost in totalSalesAmount
-            totalSales.setText("$" + String.valueOf(totalSalesAmount.get()));
-            Log.d("count",  "$"+String.valueOf(totalSalesAmount.get()));
+            totalSales.setText("$" + totalSalesAmount.get());
+            Log.d("count", "$" + String.valueOf(totalSalesAmount.get()));
 
 
         }).addOnFailureListener(e -> {

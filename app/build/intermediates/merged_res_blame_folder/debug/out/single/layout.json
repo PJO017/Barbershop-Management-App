@@ -40,6 +40,10 @@
         "source": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-main-52:/layout/activity_reviews.xml"
     },
     {
+        "merged": "com.example.barbershopmanagementapp-mergeDebugResources-49:/layout/activity_ownerdashboard.xml",
+        "source": "com.example.barbershopmanagementapp-main-52:/layout/activity_ownerdashboard.xml"
+    },
+    {
         "merged": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-mergeDebugResources-49:/layout/activity_payment.xml",
         "source": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-main-52:/layout/activity_payment.xml"
     },
@@ -66,9 +70,5 @@
     {
         "merged": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-mergeDebugResources-49:/layout/activity_barber.xml",
         "source": "/home/pj/.gradle/daemon/7.5/com.example.barbershopmanagementapp-main-52:/layout/activity_barber.xml"
-    },
-    {
-        "merged": "com.example.barbershopmanagementapp-mergeDebugResources-49:/layout/activity_book_appointment.xml",
-        "source": "com.example.barbershopmanagementapp-main-52:/layout/activity_book_appointment.xml"
     }
 ]

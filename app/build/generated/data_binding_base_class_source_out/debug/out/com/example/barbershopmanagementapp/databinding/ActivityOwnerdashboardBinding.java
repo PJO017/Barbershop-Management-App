@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
@@ -69,6 +70,9 @@ public final class ActivityOwnerdashboardBinding implements ViewBinding {
   public final TextView thursdayNum;
 
   @NonNull
+  public final Toolbar toolbar;
+
+  @NonNull
   public final TextView tuesdayNum;
 
   @NonNull
@@ -83,8 +87,8 @@ public final class ActivityOwnerdashboardBinding implements ViewBinding {
       @NonNull TextView saturdayNum, @NonNull TextView sundayNum, @NonNull TextView textView,
       @NonNull TextView textView16, @NonNull TextView textView2, @NonNull TextView textView3,
       @NonNull TextView textView4, @NonNull TextView textView6, @NonNull TextView textView7,
-      @NonNull TextView textView8, @NonNull TextView thursdayNum, @NonNull TextView tuesdayNum,
-      @NonNull View view, @NonNull TextView wednesdayNum) {
+      @NonNull TextView textView8, @NonNull TextView thursdayNum, @NonNull Toolbar toolbar,
+      @NonNull TextView tuesdayNum, @NonNull View view, @NonNull TextView wednesdayNum) {
     this.rootView = rootView;
     this.SalesTotal = SalesTotal;
     this.constraintLayout = constraintLayout;
@@ -102,6 +106,7 @@ public final class ActivityOwnerdashboardBinding implements ViewBinding {
     this.textView7 = textView7;
     this.textView8 = textView8;
     this.thursdayNum = thursdayNum;
+    this.toolbar = toolbar;
     this.tuesdayNum = tuesdayNum;
     this.view = view;
     this.wednesdayNum = wednesdayNum;
@@ -230,6 +235,12 @@ public final class ActivityOwnerdashboardBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.toolbar;
+      Toolbar toolbar = ViewBindings.findChildViewById(rootView, id);
+      if (toolbar == null) {
+        break missingId;
+      }
+
       id = R.id.tuesdayNum;
       TextView tuesdayNum = ViewBindings.findChildViewById(rootView, id);
       if (tuesdayNum == null) {
@@ -251,7 +262,7 @@ public final class ActivityOwnerdashboardBinding implements ViewBinding {
       return new ActivityOwnerdashboardBinding((ConstraintLayout) rootView, SalesTotal,
           constraintLayout, fridayNum, manageAppointments, mondayNum, saturdayNum, sundayNum,
           textView, textView16, textView2, textView3, textView4, textView6, textView7, textView8,
-          thursdayNum, tuesdayNum, view, wednesdayNum);
+          thursdayNum, toolbar, tuesdayNum, view, wednesdayNum);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
