@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.barbershopmanagementapp-mergeDebugResources-35:/values-ldrtl-v17/values-ldrtl-v17.xml",
+            "outputFile": "com.example.barbershopmanagementapp-mergeDebugResources-48:/values-ldrtl-v17/values-ldrtl-v17.xml",
             "map": [
                 {
                     "source": "/home/pj/.gradle/caches/transforms-3/6adea83e41c9650c4ed4b9f5c7f97dca/transformed/material-1.8.0/res/values-ldrtl-v17/values-ldrtl-v17.xml",
