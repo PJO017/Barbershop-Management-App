@@ -3,54 +3,75 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:gravity="center"
+    android:gravity="center_horizontal"
+    android:background="@color/background"
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:padding="25sp"
+    android:paddingVertical="0dp"
     tools:context=".Register">
+
+
+    <ImageView
+        android:layout_width="172dp"
+        android:layout_height="182dp"
+        android:layout_marginTop="40dp"
+        android:contentDescription="@string/logo_description"
+        android:src="@drawable/logo_two" />
 
     <TextView
         android:text="@string/register"
-        android:textSize="35sp"
-        android:textStyle="bold"
+        android:textSize="45sp"
         android:layout_marginBottom="20sp"
+        android:textColor="@color/button_color"
+        android:fontFamily="@font/lobster"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
+        android:hint=" "
         android:layout_height="wrap_content">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/name"
             android:hint="@string/name"
+            android:paddingHorizontal="10dp"
+            android:background="@drawable/rounded_edittext_background"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="50dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
+        android:hint=" "
         android:layout_height="wrap_content">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/email"
             android:layout_marginTop="10sp"
+            android:paddingHorizontal="10dp"
             android:hint="@string/email"
+            android:background="@drawable/rounded_edittext_background"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="50dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:hint=" "
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/password"
             android:layout_marginTop="10sp"
             android:hint="@string/password"
+            android:paddingHorizontal="10dp"
+            android:background="@drawable/rounded_edittext_background"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="50dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <RadioGroup
@@ -63,18 +84,21 @@
             android:id="@+id/customerRadioBtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:theme="@style/RadioButtonStyle"
             android:layout_weight="1"
             android:text="Customer" />
 
         <RadioButton
             android:id="@+id/barberRadioBtn"
             android:layout_width="0dp"
+            android:theme="@style/RadioButtonStyle"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Barber" />
 
         <RadioButton
             android:id="@+id/ownerRadioBtn"
+            android:theme="@style/RadioButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -91,6 +115,7 @@
         android:id="@+id/btn_reg"
         android:text="@string/register"
         android:layout_marginTop="20sp"
+        android:background="@drawable/rounded_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

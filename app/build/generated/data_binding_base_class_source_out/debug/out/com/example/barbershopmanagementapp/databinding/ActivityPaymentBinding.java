@@ -10,7 +10,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
@@ -101,9 +100,6 @@ public final class ActivityPaymentBinding implements ViewBinding {
   @NonNull
   public final TextView serviceLabel;
 
-  @NonNull
-  public final Toolbar toolbar;
-
   private ActivityPaymentBinding(@NonNull LinearLayout rootView, @NonNull TextView CVCLabel,
       @NonNull TextView appointmentLabel, @NonNull TextView appointmentTV,
       @NonNull TextView barberLabel, @NonNull TextView barberTV, @NonNull EditText cardNumber,
@@ -114,8 +110,7 @@ public final class ActivityPaymentBinding implements ViewBinding {
       @NonNull TextView nameLabel, @NonNull Button payButton,
       @NonNull LinearLayout payementLinearLayout, @NonNull CardView paymentDetailsCard,
       @NonNull TextView paymentDetailsTitle, @NonNull TextView paymentTitle,
-      @NonNull TextView priceTV, @NonNull CardView serviceCard, @NonNull TextView serviceLabel,
-      @NonNull Toolbar toolbar) {
+      @NonNull TextView priceTV, @NonNull CardView serviceCard, @NonNull TextView serviceLabel) {
     this.rootView = rootView;
     this.CVCLabel = CVCLabel;
     this.appointmentLabel = appointmentLabel;
@@ -143,7 +138,6 @@ public final class ActivityPaymentBinding implements ViewBinding {
     this.priceTV = priceTV;
     this.serviceCard = serviceCard;
     this.serviceLabel = serviceLabel;
-    this.toolbar = toolbar;
   }
 
   @Override
@@ -329,17 +323,11 @@ public final class ActivityPaymentBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.toolbar;
-      Toolbar toolbar = ViewBindings.findChildViewById(rootView, id);
-      if (toolbar == null) {
-        break missingId;
-      }
-
       return new ActivityPaymentBinding((LinearLayout) rootView, CVCLabel, appointmentLabel,
           appointmentTV, barberLabel, barberTV, cardNumber, cardNumberLabel, dateAndCVVET,
           dateAndCVVLabels, dateLabel, dayET, divider, hairstyleLabel, hairstyleTV, linearLayout,
           monthET, name, nameLabel, payButton, payementLinearLayout, paymentDetailsCard,
-          paymentDetailsTitle, paymentTitle, priceTV, serviceCard, serviceLabel, toolbar);
+          paymentDetailsTitle, paymentTitle, priceTV, serviceCard, serviceLabel);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -47,10 +47,6 @@ public class PaymentActivity extends AppCompatActivity {
         setContentView(R.layout.activity_payment);
         Intent data = getIntent();
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        toolbar.setNavigationOnClickListener(v -> onBackPressed());
-
         appointment = findViewById(R.id.appointmentTV);
         String date = data.getStringExtra("month") + "/" + data.getStringExtra("day") + "/" + data.getStringExtra("year");
         String date_time_string = BookAppointmentActivity.convertTime(data.getIntExtra("hour", 0), data.getIntExtra("minute", 0)) + " @ " + date;

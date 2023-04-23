@@ -44,10 +44,6 @@ public class HairstyleActivity extends AppCompatActivity {
 
         context = this;
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        toolbar.setNavigationOnClickListener(v -> onBackPressed());
-
         ArrayList<HairstyleModel> hairstyleModelArrayList = new ArrayList<>();
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();

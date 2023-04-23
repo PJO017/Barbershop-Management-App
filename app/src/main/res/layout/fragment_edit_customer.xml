@@ -18,8 +18,9 @@
         android:id="@+id/save_edit_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/courgette"
+        android:background="@drawable/rounded_button"
         android:layout_gravity="end"
-        android:backgroundTint="#C1C1C1"
         android:textColor="@color/black"
         android:text="Set Changes" />
 

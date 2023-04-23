@@ -3,31 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:paddingHorizontal="10dp"
     android:orientation="vertical"
-    android:layout_height="wrap_content"
+    android:background="@color/background"
+    android:layout_height="match_parent"
     tools:context=".Appointments">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_gravity="start"
-        android:layout_marginBottom="20dp"
-        android:background="?attr/colorPrimary"
-        android:gravity="center_horizontal"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:navigationIcon="@drawable/ic_arrow_back"
-        app:title="Barbershop Management App" />
 
     <TextView
         android:id="@+id/appointmentsTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/lobster"
         android:text="Manage Appointments"
         android:textAlignment="center"
-        android:textSize="30sp"
+        android:textSize="34sp"
+        android:layout_marginTop="10dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-        android:textColor="@color/black"
         android:layout_marginBottom="10dp" />
 
 
@@ -35,6 +27,7 @@
         android:id="@+id/scrollView"
         android:layout_width="wrap_content"
         android:layout_marginBottom="10dp"
+        android:paddingVertical="10dp"
         android:layout_height="600dp">
 
         <LinearLayout
@@ -52,6 +45,8 @@
     <Button
         android:id="@+id/save_button"
         android:layout_width="125dp"
+        android:background="@drawable/rounded_button"
+        android:fontFamily="@font/courgette"
         android:layout_gravity="center"
         android:layout_height="wrap_content"
         android:text="Save" />

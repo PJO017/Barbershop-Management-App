@@ -44,10 +44,6 @@ public class Ownerdashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ownerdashboard);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        toolbar.setNavigationOnClickListener(v -> onBackPressed());
-
         textView2 = findViewById(R.id.textView2);
         textView4 = findViewById(R.id.textView4);
         textView6 = findViewById(R.id.textView6);

@@ -9,7 +9,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.Toolbar;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.barbershopmanagementapp.R;
@@ -27,16 +26,11 @@ public final class ActivityHairstylesBinding implements ViewBinding {
   @NonNull
   public final GridView idGVHairstyles;
 
-  @NonNull
-  public final Toolbar toolbar;
-
   private ActivityHairstylesBinding(@NonNull LinearLayout rootView,
-      @NonNull TextView hairstyleActivityTitle, @NonNull GridView idGVHairstyles,
-      @NonNull Toolbar toolbar) {
+      @NonNull TextView hairstyleActivityTitle, @NonNull GridView idGVHairstyles) {
     this.rootView = rootView;
     this.hairstyleActivityTitle = hairstyleActivityTitle;
     this.idGVHairstyles = idGVHairstyles;
-    this.toolbar = toolbar;
   }
 
   @Override
@@ -78,14 +72,8 @@ public final class ActivityHairstylesBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.toolbar;
-      Toolbar toolbar = ViewBindings.findChildViewById(rootView, id);
-      if (toolbar == null) {
-        break missingId;
-      }
-
       return new ActivityHairstylesBinding((LinearLayout) rootView, hairstyleActivityTitle,
-          idGVHairstyles, toolbar);
+          idGVHairstyles);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

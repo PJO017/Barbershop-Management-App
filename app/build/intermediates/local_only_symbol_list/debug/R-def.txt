@@ -1,7 +1,11 @@
 R_DEF: Internal format may change without notice
 local
 color Grey
+color background
 color black
+color button_color
+color card_color
+color edittext_background
 color hairstyle_card
 color newBack
 color purple_200
@@ -13,6 +17,7 @@ color teal_700
 color white
 dimen fab_margin
 drawable barber_icon
+drawable custom_radio_button
 drawable favorite
 drawable favorite_on
 drawable heart_button
@@ -20,9 +25,15 @@ drawable ic_arrow_back
 drawable ic_delete
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable logo
+drawable logo_two
 drawable off
 drawable on
 drawable rounded_background
+drawable rounded_button
+drawable rounded_edittext_background
+font courgette
+font lobster
 id CVCLabel
 id DisplayRating
 id DisplayReview
@@ -175,6 +186,7 @@ string leave_review
 string login
 string login_now
 string login_text
+string logo_description
 string logout
 string name
 string next
@@ -192,6 +204,7 @@ string second_fragment_label
 string test_review
 string textview
 string title_activity_ownerdashboard
+style RadioButtonStyle
 style Theme.BarbershopManagementApp
 style Theme.BarbershopManagementApp.AppBarOverlay
 style Theme.BarbershopManagementApp.NoActionBar

@@ -261,9 +261,9 @@ ADDED from /home/pj/AndroidStudioProjects/BarbershopManagementApp/app/src/main/A
 	android:name
 		ADDED from /home/pj/AndroidStudioProjects/BarbershopManagementApp/app/src/main/AndroidManifest.xml:22:27-74
 activity#com.example.barbershopmanagementapp.BarberActivity
-ADDED from /home/pj/AndroidStudioProjects/BarbershopManagementApp/app/src/main/AndroidManifest.xml:25:9-27:40
+ADDED from /home/pj/AndroidStudioProjects/BarbershopManagementApp/app/src/main/AndroidManifest.xml:25:9-27:39
 	android:exported
-		ADDED from /home/pj/AndroidStudioProjects/BarbershopManagementApp/app/src/main/AndroidManifest.xml:27:13-37
+		ADDED from /home/pj/AndroidStudioProjects/BarbershopManagementApp/app/src/main/AndroidManifest.xml:27:13-36
 	android:name
 		ADDED from /home/pj/AndroidStudioProjects/BarbershopManagementApp/app/src/main/AndroidManifest.xml:26:13-43
 activity#com.example.barbershopmanagementapp.Hairstyles.HairstyleActivity
@@ -299,7 +299,7 @@ ADDED from /home/pj/AndroidStudioProjects/BarbershopManagementApp/app/src/main/A
 activity#com.example.barbershopmanagementapp.Appointments
 ADDED from /home/pj/AndroidStudioProjects/BarbershopManagementApp/app/src/main/AndroidManifest.xml:50:9-56:20
 	android:exported
-		ADDED from /home/pj/AndroidStudioProjects/BarbershopManagementApp/app/src/main/AndroidManifest.xml:52:13-37
+		ADDED from /home/pj/AndroidStudioProjects/BarbershopManagementApp/app/src/main/AndroidManifest.xml:52:13-36
 	android:name
 		ADDED from /home/pj/AndroidStudioProjects/BarbershopManagementApp/app/src/main/AndroidManifest.xml:51:13-41
 activity#com.example.barbershopmanagementapp.MainActivity
@@ -332,6 +332,12 @@ ADDED from /home/pj/AndroidStudioProjects/BarbershopManagementApp/app/src/main/A
 		ADDED from /home/pj/AndroidStudioProjects/BarbershopManagementApp/app/src/main/AndroidManifest.xml:74:13-36
 	android:name
 		ADDED from /home/pj/AndroidStudioProjects/BarbershopManagementApp/app/src/main/AndroidManifest.xml:73:13-44
+intent-filter#action:name:android.intent.action.PAY+category:name:android.intent.category.DEFAULT
+ADDED from /home/pj/AndroidStudioProjects/BarbershopManagementApp/app/src/main/AndroidManifest.xml:75:13-78:29
+action#android.intent.action.PAY
+ADDED from /home/pj/AndroidStudioProjects/BarbershopManagementApp/app/src/main/AndroidManifest.xml:76:17-68
+	android:name
+		ADDED from /home/pj/AndroidStudioProjects/BarbershopManagementApp/app/src/main/AndroidManifest.xml:76:25-65
 activity#com.example.barbershopmanagementapp.Reviews
 ADDED from /home/pj/AndroidStudioProjects/BarbershopManagementApp/app/src/main/AndroidManifest.xml:80:9-83:39
 	android:parentActivityName
@@ -341,15 +347,15 @@ ADDED from /home/pj/AndroidStudioProjects/BarbershopManagementApp/app/src/main/A
 	android:name
 		ADDED from /home/pj/AndroidStudioProjects/BarbershopManagementApp/app/src/main/AndroidManifest.xml:81:13-36
 activity#com.example.barbershopmanagementapp.Register
-ADDED from /home/pj/AndroidStudioProjects/BarbershopManagementApp/app/src/main/AndroidManifest.xml:84:9-86:40
+ADDED from /home/pj/AndroidStudioProjects/BarbershopManagementApp/app/src/main/AndroidManifest.xml:84:9-86:39
 	android:exported
-		ADDED from /home/pj/AndroidStudioProjects/BarbershopManagementApp/app/src/main/AndroidManifest.xml:86:13-37
+		ADDED from /home/pj/AndroidStudioProjects/BarbershopManagementApp/app/src/main/AndroidManifest.xml:86:13-36
 	android:name
 		ADDED from /home/pj/AndroidStudioProjects/BarbershopManagementApp/app/src/main/AndroidManifest.xml:85:13-37
 activity#com.example.barbershopmanagementapp.AddReview
-ADDED from /home/pj/AndroidStudioProjects/BarbershopManagementApp/app/src/main/AndroidManifest.xml:87:9-89:40
+ADDED from /home/pj/AndroidStudioProjects/BarbershopManagementApp/app/src/main/AndroidManifest.xml:87:9-89:39
 	android:exported
-		ADDED from /home/pj/AndroidStudioProjects/BarbershopManagementApp/app/src/main/AndroidManifest.xml:89:13-37
+		ADDED from /home/pj/AndroidStudioProjects/BarbershopManagementApp/app/src/main/AndroidManifest.xml:89:13-36
 	android:name
 		ADDED from /home/pj/AndroidStudioProjects/BarbershopManagementApp/app/src/main/AndroidManifest.xml:88:13-38
 uses-sdk

@@ -4,27 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     android:layout_centerVertical="false"
     android:gravity="center_horizontal"
     android:orientation="vertical">
 
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginBottom="10dp"
-        android:background="?attr/colorPrimary"
-        android:gravity="center_horizontal"
-        app:navigationIcon="@drawable/ic_arrow_back"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:title="Barbershop Management App"
-        app:titleMargin="0dp" />
-
     <TextView
         android:id="@+id/bookAppointmentTitle"
+        android:layout_marginTop="10dp"
         android:layout_width="293dp"
+        android:textAlignment="center"
+        android:fontFamily="@font/lobster"
         android:layout_height="51dp"
         android:layout_marginBottom="10dp"
         android:paddingHorizontal="0dp"
@@ -37,13 +27,14 @@
         android:layout_width="319dp"
         android:layout_height="55dp"
         android:layout_marginVertical="5dp"
+        app:cardBackgroundColor="@color/background"
         android:textAlignment="center"
-        app:cardBackgroundColor="#c7c7c7"
         app:cardCornerRadius="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="#BBBB"
             android:gravity="start|center_vertical"
             android:orientation="horizontal">
 
@@ -56,6 +47,7 @@
             <TextView
                 android:id="@+id/hairstyleTV"
                 android:layout_width="206dp"
+                android:fontFamily="@font/courgette"
                 android:layout_height="wrap_content"
                 android:text="Hairstyle 3"
                 android:textAlignment="center"
@@ -67,14 +59,15 @@
         android:id="@+id/barberCV"
         android:layout_width="319dp"
         android:layout_height="55dp"
+        app:cardBackgroundColor="@color/background"
         android:layout_marginVertical="10dp"
         android:textAlignment="center"
-        app:cardBackgroundColor="#c7c7c7"
         app:cardCornerRadius="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="56dp"
+            android:background="#BBBB"
             android:gravity="start|center_vertical"
             android:orientation="horizontal">
 
@@ -82,6 +75,7 @@
                 android:id="@+id/barberTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/courgette"
                 android:text="Barber 1"
                 android:textAlignment="center"
                 android:textSize="24sp" />
@@ -91,6 +85,7 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
+        android:fontFamily="@font/lobster"
         android:layout_height="wrap_content"
         android:layout_marginVertical="10dp"
         android:paddingHorizontal="0dp"
@@ -101,14 +96,16 @@
     <CalendarView
         android:id="@+id/appointmentCalendarView"
         android:layout_width="302dp"
-        android:layout_height="350dp"
+        android:layout_height="322dp"
         android:layout_marginBottom="8dp" />
 
     <Button
         android:id="@+id/timePickerButton"
         android:layout_width="wrap_content"
+        android:layout_marginBottom="5dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="#c7c7c7"
+        android:fontFamily="@font/courgette"
+        android:background="@drawable/rounded_button"
         android:onClick="popTimePicker"
         android:text="Select Time"
         android:textColor="@color/black" />
@@ -116,8 +113,9 @@
     <Button
         android:id="@+id/bookButton"
         android:layout_width="181dp"
+        android:fontFamily="@font/courgette"
+        android:background="@drawable/rounded_button"
         android:layout_height="wrap_content"
-        android:backgroundTint="#c7c7c7"
         android:text="Book Appointment"
         android:textColor="@color/black" />
 

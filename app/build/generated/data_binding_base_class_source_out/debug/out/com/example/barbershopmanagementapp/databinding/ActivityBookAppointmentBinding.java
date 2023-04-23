@@ -11,7 +11,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
@@ -54,15 +53,11 @@ public final class ActivityBookAppointmentBinding implements ViewBinding {
   @NonNull
   public final Button timePickerButton;
 
-  @NonNull
-  public final Toolbar toolbar;
-
   private ActivityBookAppointmentBinding(@NonNull LinearLayout rootView,
       @NonNull CalendarView appointmentCalendarView, @NonNull CardView barberCV,
       @NonNull TextView barberTV, @NonNull TextView bookAppointmentTitle,
       @NonNull Button bookButton, @NonNull CardView hairstyleCV, @NonNull ImageView hairstyleIV,
-      @NonNull TextView hairstyleTV, @NonNull TextView textView, @NonNull Button timePickerButton,
-      @NonNull Toolbar toolbar) {
+      @NonNull TextView hairstyleTV, @NonNull TextView textView, @NonNull Button timePickerButton) {
     this.rootView = rootView;
     this.appointmentCalendarView = appointmentCalendarView;
     this.barberCV = barberCV;
@@ -74,7 +69,6 @@ public final class ActivityBookAppointmentBinding implements ViewBinding {
     this.hairstyleTV = hairstyleTV;
     this.textView = textView;
     this.timePickerButton = timePickerButton;
-    this.toolbar = toolbar;
   }
 
   @Override
@@ -164,15 +158,9 @@ public final class ActivityBookAppointmentBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.toolbar;
-      Toolbar toolbar = ViewBindings.findChildViewById(rootView, id);
-      if (toolbar == null) {
-        break missingId;
-      }
-
       return new ActivityBookAppointmentBinding((LinearLayout) rootView, appointmentCalendarView,
           barberCV, barberTV, bookAppointmentTitle, bookButton, hairstyleCV, hairstyleIV,
-          hairstyleTV, textView, timePickerButton, toolbar);
+          hairstyleTV, textView, timePickerButton);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

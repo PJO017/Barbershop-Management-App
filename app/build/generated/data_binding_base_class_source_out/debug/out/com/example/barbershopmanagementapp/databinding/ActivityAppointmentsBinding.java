@@ -11,7 +11,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.LinearLayoutCompat;
-import androidx.appcompat.widget.Toolbar;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.barbershopmanagementapp.R;
@@ -35,18 +34,14 @@ public final class ActivityAppointmentsBinding implements ViewBinding {
   @NonNull
   public final ScrollView scrollView;
 
-  @NonNull
-  public final Toolbar toolbar;
-
   private ActivityAppointmentsBinding(@NonNull LinearLayoutCompat rootView,
       @NonNull TextView appointmentsTitle, @NonNull LinearLayout itemList,
-      @NonNull Button saveButton, @NonNull ScrollView scrollView, @NonNull Toolbar toolbar) {
+      @NonNull Button saveButton, @NonNull ScrollView scrollView) {
     this.rootView = rootView;
     this.appointmentsTitle = appointmentsTitle;
     this.itemList = itemList;
     this.saveButton = saveButton;
     this.scrollView = scrollView;
-    this.toolbar = toolbar;
   }
 
   @Override
@@ -100,14 +95,8 @@ public final class ActivityAppointmentsBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.toolbar;
-      Toolbar toolbar = ViewBindings.findChildViewById(rootView, id);
-      if (toolbar == null) {
-        break missingId;
-      }
-
       return new ActivityAppointmentsBinding((LinearLayoutCompat) rootView, appointmentsTitle,
-          itemList, saveButton, scrollView, toolbar);
+          itemList, saveButton, scrollView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

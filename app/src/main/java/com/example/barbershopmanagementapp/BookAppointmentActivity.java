@@ -57,10 +57,6 @@ public class BookAppointmentActivity extends AppCompatActivity {
         setContentView(R.layout.activity_book_appointment);
         Intent data = getIntent();
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        toolbar.setNavigationOnClickListener(v -> onBackPressed());
-
         Context context = this;
 
         hairstyle = findViewById(R.id.hairstyleTV);

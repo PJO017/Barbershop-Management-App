@@ -3,30 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/background"
     android:layout_height="match_parent"
+    android:paddingHorizontal="20dp"
     android:layout_centerVertical="false"
     android:gravity="center_horizontal"
     android:orientation="vertical">
 
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginBottom="10dp"
-        android:background="?attr/colorPrimary"
-        android:gravity="center_horizontal"
-        app:navigationIcon="@drawable/ic_arrow_back"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:title="Barbershop Management App"
-        app:titleMargin="0dp" />
 
     <TextView
         android:id="@+id/paymentTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
+        android:fontFamily="@font/lobster"
+        android:layout_marginTop="10dp"
         android:paddingHorizontal="0dp"
         android:paddingVertical="0dp"
         android:text="@string/paymentTitle"
@@ -34,11 +25,11 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/serviceCard"
-        android:layout_width="315dp"
         android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        app:cardBackgroundColor="@color/background"
         android:layout_marginBottom="10dp"
         android:textAlignment="center"
-        app:cardBackgroundColor="#c7c7c7"
         app:cardCornerRadius="10dp">
 
         <LinearLayout
@@ -46,6 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center|center_horizontal"
+            android:background="#BBBB"
             android:layout_weight="1"
             android:gravity="start"
             android:orientation="vertical"
@@ -56,6 +48,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
+                android:fontFamily="@font/courgette"
                 android:text="Service"
                 android:textAlignment="center"
                 android:textSize="20sp" />
@@ -63,6 +56,7 @@
 
             <TextView
                 android:id="@+id/appointmentLabel"
+                android:fontFamily="@font/courgette"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Appointment: "
@@ -72,6 +66,7 @@
             <TextView
                 android:id="@+id/appointmentTV"
                 android:layout_width="match_parent"
+                android:fontFamily="@font/courgette"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:textAlignment="center"
@@ -80,6 +75,7 @@
             <TextView
                 android:id="@+id/barberLabel"
                 android:layout_width="match_parent"
+                android:fontFamily="@font/courgette"
                 android:layout_height="wrap_content"
                 android:text="Barber: "
                 android:textAlignment="center"
@@ -91,11 +87,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:textAlignment="center"
+                android:fontFamily="@font/courgette"
                 android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/hairstyleLabel"
                 android:layout_width="match_parent"
+                android:fontFamily="@font/courgette"
                 android:layout_height="wrap_content"
                 android:text="Hairstyle: "
                 android:textAlignment="center"
@@ -104,6 +102,7 @@
             <TextView
                 android:id="@+id/hairstyleTV"
                 android:layout_width="match_parent"
+                android:fontFamily="@font/courgette"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:textAlignment="center"
@@ -112,6 +111,7 @@
             <TextView
                 android:id="@+id/priceTV"
                 android:layout_width="match_parent"
+                android:fontFamily="@font/courgette"
                 android:layout_height="wrap_content"
                 android:text="@string/price"
                 android:textAlignment="center"
@@ -123,11 +123,11 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/paymentDetailsCard"
-        android:layout_width="316dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/background"
         android:layout_marginBottom="10dp"
         android:textAlignment="center"
-        app:cardBackgroundColor="#c7c7c7"
         app:cardCornerRadius="10dp">
 
         <LinearLayout
@@ -137,6 +137,7 @@
             android:layout_gravity="center|center_horizontal"
             android:layout_weight="1"
             android:gravity="start"
+            android:background="#BBBB"
             android:orientation="vertical"
             android:padding="10dp"
             android:paddingHorizontal="10dp"
@@ -146,6 +147,7 @@
                 android:id="@+id/paymentDetailsTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/courgette"
                 android:layout_marginBottom="10dp"
                 android:text="Payment Details"
                 android:textAlignment="center"
@@ -155,13 +157,14 @@
                 android:id="@+id/nameLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/courgette"
                 android:text="Name:"
                 android:textAlignment="viewStart"
                 android:textSize="15sp" />
 
             <EditText
                 android:id="@+id/name"
-                android:layout_width="291dp"
+                android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginBottom="10dp"
                 android:text=""
@@ -174,12 +177,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Card Number: "
+                android:fontFamily="@font/courgette"
                 android:textAlignment="viewStart"
                 android:textSize="15sp" />
 
             <EditText
                 android:id="@+id/cardNumber"
-                android:layout_width="291dp"
+                android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginBottom="10dp"
                 android:text=""
@@ -197,6 +201,7 @@
                 <TextView
                     android:id="@+id/dateLabel"
                     android:layout_width="wrap_content"
+                    android:fontFamily="@font/courgette"
                     android:layout_height="wrap_content"
                     android:text="Expiration Date"
                     android:textAlignment="viewStart"
@@ -210,6 +215,7 @@
                     android:id="@+id/CVCLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/courgette"
                     android:layout_marginRight="30dp"
                     android:text="CVC"
                     android:textAlignment="viewStart"
@@ -267,7 +273,8 @@
         android:id="@+id/payButton"
         android:layout_width="181dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="#c7c7c7"
+        android:fontFamily="@font/courgette"
+        android:background="@drawable/rounded_button"
         android:text="Pay"
         android:textColor="@color/black" />
 

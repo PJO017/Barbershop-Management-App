@@ -10,7 +10,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.Toolbar;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.barbershopmanagementapp.R;
@@ -34,18 +33,14 @@ public final class ActivityReviewsBinding implements ViewBinding {
   @NonNull
   public final ListView reviewsListView;
 
-  @NonNull
-  public final Toolbar toolbar;
-
   private ActivityReviewsBinding(@NonNull LinearLayout rootView, @NonNull Button add,
       @NonNull TextView barberName, @NonNull TextView barberRating,
-      @NonNull ListView reviewsListView, @NonNull Toolbar toolbar) {
+      @NonNull ListView reviewsListView) {
     this.rootView = rootView;
     this.add = add;
     this.barberName = barberName;
     this.barberRating = barberRating;
     this.reviewsListView = reviewsListView;
-    this.toolbar = toolbar;
   }
 
   @Override
@@ -99,14 +94,8 @@ public final class ActivityReviewsBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.toolbar;
-      Toolbar toolbar = ViewBindings.findChildViewById(rootView, id);
-      if (toolbar == null) {
-        break missingId;
-      }
-
       return new ActivityReviewsBinding((LinearLayout) rootView, add, barberName, barberRating,
-          reviewsListView, toolbar);
+          reviewsListView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
